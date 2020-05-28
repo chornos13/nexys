@@ -40,7 +40,9 @@ module.exports = {
     'jsx-a11y/interactive-supports-focus': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'react/jsx-filename-extension': 'off',
-    'module-resolver/use-alias': 2,
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-fragments': [2, 'element'],
+    'jsx-a11y/anchor-is-valid': 'off',
     'import/no-unresolved': [
       2,
       {
@@ -57,16 +59,14 @@ module.exports = {
           'routes',
           'constants',
           'validations',
+          'shortcuts',
+          'library',
           'proptypes',
           'services',
+          'layouts',
           'helpers',
         ],
       },
     ],
-  },
-  settings: {
-    'import/resolver': {
-      'babel-module': {},
-    },
   },
 }

@@ -9,12 +9,15 @@ import {
   Button,
 } from 'antd'
 import Link from 'next/link'
+import Content from 'components/Layout/Content'
 
 const FormItem = Form.Item
 const { Option } = Select
 
 export default () => (
-  <div>
+  <Content>
+    <div>Godaksazs</div>
+
     <Form layout="horizontal">
       <FormItem
         label="Input Number"
@@ -73,8 +76,8 @@ export default () => (
       </FormItem>
     </Form>
 
-    <Link href={'/about'}>
-      <a>Ke About yuk :D</a>
+    <Link href={'/'}>
+      <a>{`Ke Home <-`}</a>
     </Link>
-  </div>
+  </Content>
 )

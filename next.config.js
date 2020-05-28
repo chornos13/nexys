@@ -7,11 +7,10 @@ const _ = require('lodash')
 const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
 const path = require('path')
-const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
 const withFilterConflictOrder = require('./webpack-extends/filter-confilct-order')
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
-  fs.readFileSync(path.resolve(__dirname, './assets/antd-custom.less'), 'utf8')
+  fs.readFileSync(path.resolve(__dirname, './assets/antd-custom.less'), 'utf8'),
 )
 
 const lessConfig = withLess({
@@ -44,35 +43,34 @@ const lessConfig = withLess({
   },
 })
 
-const cssConfig = withAntdDayJs(withCSS({
-  cssModules: true,
-  cssLoaderOptions: {
-    importLoaders: 1,
-    localIdentName: "[local]___[hash:base64:5]",
-    // modules: {
-    //   localIdentName: "[local]___[hash:base64:5]",
-    //   localIdentName: true,
-    // }
-  },
-  // ...sassConfig,
-  ...lessConfig,
-}))
+const cssConfig = withAntdDayJs(
+  withCSS({
+    cssModules: true,
+    cssLoaderOptions: {
+      importLoaders: 1,
+      localIdentName: '[local]___[hash:base64:5]',
+      // modules: {
+      //   localIdentName: "[local]___[hash:base64:5]",
+      //   localIdentName: true,
+      // }
+    },
+    // ...sassConfig,
+    ...lessConfig,
+  }),
+)
 
 // console.log(cssConfig)
 
 const sassConfig = withSass({
   cssModules: true,
   cssLoaderOptions: {
-    localIdentName: "[local]___[hash:base64:5]",
+    localIdentName: '[local]___[hash:base64:5]',
     // modules: {
     //   localIdentName: "[local]___[hash:base64:5]",
     //   // localIdentName: true,
     // }
   },
-  ...cssConfig
+  ...cssConfig,
 })
 
-
 module.exports = withFilterConflictOrder(sassConfig)
-
-

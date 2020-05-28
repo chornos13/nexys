@@ -1,0 +1,13 @@
+.header {
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  background: #3c4856;
+  z-index: 100;
+  top: 0;
+}

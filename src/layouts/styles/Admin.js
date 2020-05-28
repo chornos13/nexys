@@ -1,18 +1,21 @@
 import React from 'react'
-import Header from 'components/Header/Header'
-import Main from 'components/Layout/Page'
+import Page from 'layouts/Page'
 import Footer from 'components/Footer/Footer'
 import PropTypes from 'prop-types'
+import { Empty } from 'antd'
+import HeaderPublic from 'components/Header/HeaderPublic'
 
 function Layout(props) {
   const { Component, pageProps, router } = props
 
   return (
     <React.Fragment>
-      <Header />
-      <Main>
+      <HeaderPublic />
+
+      <Page>
+        <Empty />
         <Component {...pageProps} key={router.route} />
-      </Main>
+      </Page>
       {/* <Loading ref={this.refLoading} /> */}
       <Footer />
     </React.Fragment>

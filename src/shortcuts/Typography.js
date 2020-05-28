@@ -1,11 +1,13 @@
-import { Typography } from 'antd'
+import { Typography as T } from 'antd'
 
-const { Text } = Typography
-const { Paragraph } = Typography
-const { Title } = Typography
+export const { Text } = T
+export const { Paragraph } = T
+export const { Title } = T
 
-export default {
+const Typography = {
   Text,
   Paragraph,
   Title,
 }
+
+export default Typography

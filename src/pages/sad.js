@@ -1,24 +1,42 @@
-import React from 'react'
 import {
   Form,
   Select,
   InputNumber,
-  DatePicker,
   Switch,
   Slider,
   Button,
+  DatePicker,
 } from 'antd'
+
+// Custom DatePicker that uses Day.js instead of Moment.js
+// import DatePicker from 'components/Cantd/DatePicker'
+
+// import { SmileFilled } from '@ant-design/icons'
+
 import Link from 'next/link'
 import Content from 'components/Layout/Content'
+import React from 'react'
 
 const FormItem = Form.Item
-const { Option } = Select
+const Option = Select.Option
 
-export default function Aza() {
+const content = {
+  marginTop: '100px',
+}
+
+export default function Home() {
   return (
-    <React.Fragment>
-      <Content>
-        <div>Ada yg blangss</div>
+    <div style={content}>
+      <div className="text-center mb-5">
+        <Link href="#">
+          <a className="logo mr-0">
+            {/*<SmileFilled size={48} strokeWidth={1} />*/}
+          </a>
+        </Link>
+
+        <p className="mb-0 mt-3 text-disabled">Welcoaaame to the world !</p>
+      </div>
+      <div>
         <Form layout="horizontal">
           <FormItem
             label="Input Number"
@@ -33,7 +51,6 @@ export default function Aza() {
               defaultValue={3}
               name="inputNumber"
             />
-            <a href="#">Link</a>
           </FormItem>
 
           <FormItem
@@ -71,7 +88,9 @@ export default function Aza() {
               <Option value="yiminghe">yiminghe</Option>
             </Select>
           </FormItem>
-
+          <Link href={'/'}>
+            <a>Ke indexz yuk :D</a>
+          </Link>
           <FormItem
             label="DatePicker"
             labelCol={{ span: 8 }}
@@ -91,14 +110,7 @@ export default function Aza() {
             </Button>
           </FormItem>
         </Form>
-        <Link href={'/about'}>
-          <a>Ke About yuk :D</a>
-        </Link>
-        <Link href={'/sad'}>
-          <a>Ke Sad yuk :D</a>
-        </Link>
-      </Content>
-      <Content>Hei yo</Content>
-    </React.Fragment>
+      </div>
+    </div>
   )
 }
