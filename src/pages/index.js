@@ -7,12 +7,18 @@ import {
   Slider,
   Button,
 } from 'antd'
+import cssCustom from './custom.module.css'
+// import scssCustom from './styles.scss'
 
 const FormItem = Form.Item
 const Option = Select.Option
 
 export default () => (
-  <div style={{ marginTop: 100 }}>
+  <div >
+
+    <div className={cssCustom.ahay}>mantap</div>
+    {/*<div className={scssCustom.example}>mantap</div>*/}
+
     <Form layout="horizontal">
       <FormItem
         label="Input Number"
