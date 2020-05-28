@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'shortcuts/PropTypes'
 import cx from 'shortcuts/cx'
-import cssPage from 'layouts/Page.module.scss'
+import cssPage from 'layouts/core/Page.module.scss'
 
 function Main(props) {
   const { children, ...comProps } = props

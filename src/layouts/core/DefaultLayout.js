@@ -10,8 +10,6 @@ function getSiteLayout(appProps) {
   const { router } = appProps
   const { route } = router
 
-  console.log({ appProps })
-
   if (route === '/about') {
     return <Admin {...appProps} />
   }

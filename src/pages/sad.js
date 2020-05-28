@@ -8,14 +8,9 @@ import {
   DatePicker,
 } from 'antd'
 
-// Custom DatePicker that uses Day.js instead of Moment.js
-// import DatePicker from 'components/Cantd/DatePicker'
-
-// import { SmileFilled } from '@ant-design/icons'
-
 import Link from 'next/link'
-import Content from 'components/Layout/Content'
 import React from 'react'
+import Content from 'components/Layout/Content'
 
 const FormItem = Form.Item
 const Option = Select.Option
@@ -26,7 +21,7 @@ const content = {
 
 export default function Home() {
   return (
-    <div style={content}>
+    <Content>
       <div className="text-center mb-5">
         <Link href="#">
           <a className="logo mr-0">
@@ -111,6 +106,6 @@ export default function Home() {
           </FormItem>
         </Form>
       </div>
-    </div>
+    </Content>
   )
 }

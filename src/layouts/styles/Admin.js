@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from 'layouts/Page'
+import Page from 'layouts/core/Page'
 import Footer from 'components/Footer/Footer'
 import PropTypes from 'prop-types'
 import { Empty } from 'antd'

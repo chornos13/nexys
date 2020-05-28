@@ -6,7 +6,6 @@ import cssHeader from './Header.module.scss'
 
 function RawHeader(props) {
   const { children, ...otherProps } = props
-  console.log(otherProps)
   return <header {...otherProps}>{children}</header>
 }
 
