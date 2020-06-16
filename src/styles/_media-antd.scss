@@ -1,0 +1,44 @@
+@mixin xs-sm {
+  @include xs {
+    @content
+  }
+  @include sm {
+    @content
+  }
+}
+
+@mixin xs-sm-md {
+  @include xs-sm {
+    @content
+  }
+  @include md {
+    @content
+  }
+}
+
+@mixin xs-sm-md-lg {
+  @include xs-sm-md {
+    @content
+  }
+  @include lg {
+    @content
+  }
+}
+
+@mixin xs-sm-md-lg-xl {
+  @include xs-sm-md-lg {
+    @content
+  }
+  @include xl {
+    @content
+  }
+}
+
+@mixin xs-sm-md-lg-xl-xxl {
+  @include xs-sm-md-lg-xl {
+    @content
+  }
+  @include xxl {
+    @content
+  }
+}

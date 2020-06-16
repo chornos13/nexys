@@ -30,17 +30,26 @@ function Content(props) {
     className,
     style,
     isComponentContainer,
+    isFullHeight,
     ...comProps
   } = props
+
+  let extraStyle = {}
+
+  if (isFullHeight) {
+    extraStyle = { ...extraStyle, height: '100%' }
+  }
+
   const containerProps = {
     className: cx(cssContent.container, classNameContainer),
-    style: styleContainer,
+    style: { ...styleContainer, ...extraStyle },
   }
 
   const sectionProps = {
     className: cx(cssContent.section, className),
     style: {
       ...style,
+      ...extraStyle,
     },
   }
 
@@ -74,6 +83,7 @@ Content.propTypes = {
   style: PropTypes.shape(PropTypes.object),
   children: PropTypes.node,
   isComponentContainer: PropTypes.bool,
+  isFullHeight: PropTypes.bool,
   component: PropTypes.func,
 }
 

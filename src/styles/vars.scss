@@ -1,0 +1,17 @@
+$max-width: 1440px;
+
+:global {
+:root {
+  --backgroundColor: #f7f7f7;
+  --backgroundGray: #F8F8FA;
+  --primaryColor: #1B5292;
+  --textColorSecondary: rgba(0, 0, 0, 0.45);
+
+  --primaryFont: CircularStd-Medium;
+}
+
+#__next {
+  height: 100%;
+}
+}
+

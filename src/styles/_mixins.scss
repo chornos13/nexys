@@ -1,0 +1,82 @@
+@import "src/styles/breakpoints";
+
+// Mobile devices
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  @media (max-width: #{$widescreen}) {
+    @content;
+  }
+}
+
+@mixin fullhd {
+  @media (max-width: #{$fullhd}) {
+    @content;
+  }
+}
+
+@mixin navbaradmin {
+  @media (max-width: #{$navbaradmin}) {
+    @content;
+  }
+}
+
+@mixin customBreakpoint($screen) {
+  @media (max-width: $screen+'px') {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: #{$xs}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$lg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$xl}) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: #{$xxl}) {
+    @content;
+  }
+}
+
+@import "src/styles/media-antd";

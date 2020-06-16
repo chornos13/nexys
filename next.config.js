@@ -1,8 +1,12 @@
 /* eslint-disable */
 const withLess = require('@zeit/next-less')
 const withCSS = require('@zeit/next-css')
+const getLocalIdent = require('css-loader/lib/getLocalIdent')
 const withSass = require('@zeit/next-sass')
+const withSVG = require('./webpack-extends/svgr')
 const withAntdDayJs = require('./webpack-extends/antd-dayjs')
+const withFonts = require('next-fonts')
+const withImages = require('./webpack-extends/images')
 const _ = require('lodash')
 const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
@@ -10,7 +14,10 @@ const path = require('path')
 const withFilterConflictOrder = require('./webpack-extends/filter-confilct-order')
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
-  fs.readFileSync(path.resolve(__dirname, './assets/antd-custom.less'), 'utf8'),
+  fs.readFileSync(
+    path.resolve(__dirname, './public/assets/antd-custom.less'),
+    'utf8',
+  ),
 )
 
 const lessConfig = withLess({
@@ -49,10 +56,31 @@ const cssConfig = withAntdDayJs(
     cssLoaderOptions: {
       importLoaders: 1,
       localIdentName: '[local]___[hash:base64:5]',
+      getLocalIdent: (loaderContext, localIdentName, localName, options) => {
+        const fileName = path.basename(loaderContext.resourcePath)
+        if (fileName.indexOf('module.scss') !== -1) {
+          return getLocalIdent(
+            loaderContext,
+            localIdentName,
+            localName,
+            options,
+          )
+        } else {
+          return localName
+        }
+      },
       // modules: {
       //   localIdentName: "[local]___[hash:base64:5]",
       //   localIdentName: true,
       // }
+    },
+    postcssLoaderOptions: {
+      parser: true,
+      config: {
+        ctx: {
+          theme: JSON.stringify(process.env.REACT_APP_THEME),
+        },
+      },
     },
     // ...sassConfig,
     ...lessConfig,
@@ -73,4 +101,6 @@ const sassConfig = withSass({
   ...cssConfig,
 })
 
-module.exports = withFilterConflictOrder(sassConfig)
+const fontConfig = withFonts(withSVG(withFilterConflictOrder(sassConfig)))
+
+module.exports = withImages(fontConfig)

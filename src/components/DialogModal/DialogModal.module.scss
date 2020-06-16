@@ -1,0 +1,32 @@
+.container {
+  //display: table;
+
+  :global {
+    .ant-modal-close {
+      right: unset !important;
+      left: 0 !important;
+    }
+
+    .ant-modal-body {
+      padding-top: 60px !important;
+    }
+
+    .ant-modal-content {
+      border-radius: 20px !important;
+    }
+
+    .ant-modal-footer {
+      border-top: none !important;
+      padding-bottom: 25px !important;
+    }
+  }
+}
+
+.icon {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.footerSpace {
+  margin-top: 40px;
+}

@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'CircularStd-Medium';
+  src: url('/fonts/CircularStd-Medium.ttf') format('truetype');
+}
+
+:global {
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
+}
+
+$max-width: 1440px;

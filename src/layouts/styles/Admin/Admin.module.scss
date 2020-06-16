@@ -1,0 +1,13 @@
+@import "src/styles/mixins";
+@import "src/styles/breakpoints";
+
+.contentContainer {
+    margin-left: 0;
+    transition: all .2s;
+}
+
+@include lg {
+    .contentContainer {
+        margin-left: 327px;
+    }
+}

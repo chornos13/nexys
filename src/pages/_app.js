@@ -5,9 +5,12 @@ import PropTypes from 'prop-types'
 import Loading from 'components/Loading/Loading'
 import App from 'next/app'
 import getSiteLayout from 'layouts/core/DefaultLayout'
+import Head from 'next/head'
 // import 'antd/dist/antd.css'
-// import 'styles/vars.css'
-// import 'styles/global.css'
+import 'styles/vars.scss'
+import 'styles/global.scss'
+import 'styles/_breakpoints.scss'
+import 'styles/_mixins.scss'
 
 const listenLoading = (isListen, refLoading) => {
   const start = () => {
@@ -54,7 +57,7 @@ class MyApp extends App {
     const timestamp = new Date().valueOf()
     for (let i = 0; i < els.length; i += 1) {
       if (els[i].rel === 'stylesheet') {
-        els[i].href = `./_next/static/css/styles.chunk.css?v=${timestamp}`
+        els[i].href = `/_next/static/css/styles.chunk.css?v=${timestamp}`
         this.cacheURL.push(url)
         break
       }
@@ -66,6 +69,29 @@ class MyApp extends App {
 
     return (
       <React.Fragment>
+        <Head>
+          <title>Chornos13 - Next.js</title>
+          <meta name="title" content="Chornos13 - Next.js" />
+          <meta name="description" content="Boilerplate Next.js" />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://github.com/chornos13" />
+          <meta property="og:title" content="Chornos13 - Next.js" />
+          <meta property="og:description" content="Boilerplate Next.js" />
+          <meta
+            property="og:image"
+            content="https://avatars0.githubusercontent.com/u/20974979?s=400&v=4"
+          />
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://github.com/chornos13" />
+          <meta property="twitter:title" content="Chornos13 - Next.js" />
+          <meta property="twitter:description" content="Boilerplate Next.js" />
+          <meta
+            property="twitter:image"
+            content="https://avatars0.githubusercontent.com/u/20974979?s=400&v=4"
+          />
+        </Head>
         {siteLayout}
         <Loading ref={this.refLoading} />
       </React.Fragment>

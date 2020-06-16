@@ -1,0 +1,114 @@
+@mixin animateRightToLeft($initPos) {
+  @keyframes animateRightToLeft {
+    0%   {
+      right: $initPos;
+    }
+    70%   {
+      right: 0;
+    }
+
+    @for $i from 5 through 0 {
+      #{75+$i}% {
+        transform: rotate(-#{$i}deg);
+      }
+    }
+    @for $i from 0 through 5 {
+      #{80+$i}% {
+        transform: rotate(#{$i}deg);
+      }
+    }
+  }
+  animation-name: animateRightToLeft;
+  animation-duration: .5s;
+}
+
+@mixin animateLeftToRight($initPos) {
+  @keyframes animateLeftToRight {
+    0%   {
+      left: $initPos;
+    }
+    70%   {
+      left: 0;
+    }
+
+    @for $i from 5 through 0 {
+      #{80+$i}% {
+        transform: rotate(-#{$i}deg);
+      }
+    }
+    @for $i from 0 through 5 {
+      #{85+$i}% {
+        transform: rotate(#{$i}deg);
+      }
+    }
+  }
+  animation-name: animateLeftToRight;
+  animation-duration: .5s;
+}
+
+
+@mixin animateBottomToTop($initPos) {
+  @keyframes animateBottomToTop {
+    0% {
+      bottom: $initPos;
+    }
+    100% {
+      bottom: 0;
+    }
+  }
+  animation-name: animateBottomToTop;
+  animation-duration: .5s;
+}
+
+@mixin animateTopToBottom($initPos) {
+  @keyframes animateTopToBottom {
+    0% {
+      top: $initPos;
+    }
+    100% {
+      top: 0;
+    }
+  }
+  animation-name: animateTopToBottom;
+  animation-duration: .5s;
+}
+
+
+@mixin animateZoomIn {
+  @keyframes animateZoomIn {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  animation-name: animateZoomIn;
+  animation-duration: .5s;
+}
+
+
+@mixin animationList{
+  // Set delay per List Item
+  @for $i from 1 through 10 {
+    li:nth-child(#{$i}) {
+      animation-delay: .25s * $i;
+    }
+  }
+
+  // Keyframe animation
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+      top: 100px;
+    }
+    75% {
+      opacity: 0.5;
+      top: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+}

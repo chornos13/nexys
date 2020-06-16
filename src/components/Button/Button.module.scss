@@ -1,0 +1,8 @@
+@import "src/styles/fonts";
+
+.button {
+  height: 50px !important;
+  border-radius: 10px !important;
+  @include font-sm-normal;
+  word-spacing: 0 !important;
+}

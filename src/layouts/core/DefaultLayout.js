@@ -1,20 +1,25 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
-// import Public from 'layouts/styles/Public'
-// import Admin from 'layouts/styles/Admin'
-
-const Public = dynamic(() => import('layouts/styles/Public'))
-const Admin = dynamic(() => import('layouts/styles/Admin'))
+// import { Layout } from 'antd'
+import routes from 'layouts/routes'
 
 function getSiteLayout(appProps) {
-  const { router } = appProps
+  const { Component, pageProps, router } = appProps
   const { route } = router
 
-  if (route === '/about') {
-    return <Admin {...appProps} />
+  for (let i = 0; i < routes.length; i += 1) {
+    const curRoute = routes[i]
+    const { exact, path, layout: PageLayout } = curRoute
+
+    if (exact) {
+      if (path === route) {
+        return <PageLayout {...appProps} />
+      }
+    } else if (route.startsWith(path)) {
+      return <PageLayout {...appProps} />
+    }
   }
 
-  return <Public {...appProps} />
+  return <Component {...pageProps} key={router.route} />
 }
 
 export default getSiteLayout

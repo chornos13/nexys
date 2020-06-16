@@ -1,0 +1,39 @@
+@import "src/styles/fonts";
+
+.containerSelect {
+
+  :global {
+    .ant-select-selector {
+      height: 50px !important;
+      border-radius: 10px !important;
+    }
+
+    .ant-select-arrow {
+      right: 17px !important;
+    }
+
+    .ant-select-selection-search-input {
+      padding: 10px;
+      height: auto !important;
+    }
+
+    .ant-select-selection-placeholder, .ant-select-selection-item {
+      padding: 10px !important;
+      @include font-sm-normal;
+      color: black !important;
+      word-spacing: -4px;
+    }
+
+    .ant-select-item-option-content {
+      @include font-sm-normal;
+    }
+  }
+}
+
+.dropdown {
+  :global {
+    .ant-select-item-option-content {
+      @include font-sm-normal;
+    }
+  }
+}

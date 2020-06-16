@@ -1,0 +1,18 @@
+@import "src/styles/fonts";
+
+.container {
+  :global {
+    .ant-modal-header {
+      background: var(--primaryColor) !important;
+    }
+
+    .ant-modal-title {
+      @include font-md-normal;
+      color: white !important;
+    }
+
+    .ant-modal-content {
+      touch-action: none !important;
+    }
+  }
+}

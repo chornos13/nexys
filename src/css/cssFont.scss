@@ -1,0 +1,67 @@
+@import "src/styles/fonts";
+
+
+.font {
+  font-family: CircularStd-Medium !important;
+}
+
+.normal, .bold {
+  font-family: CircularStd-Medium !important;
+  font-size: 16px !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.gray {
+  color: #677E9B !important;
+}
+
+.boldPh ::placeholder{
+  font-weight: bold !important;
+}
+
+.grayPh ::placeholder{
+  color: #677E9B !important;
+}
+
+.font-xs-normal {
+  @include font-xs-normal;
+  //word-spacing: 0 !important;
+}
+
+.font-sm-normal {
+  @include font-sm-normal;
+  //word-spacing: 0 !important;
+}
+
+.font-md-normal {
+  @include font-md-normal;
+  //word-spacing: 0 !important;
+}
+
+.font-lg-normal {
+  @include font-lg-normal;
+  //word-spacing: 0 !important;
+}
+
+.font-xs-bold {
+  @include font-xs-bold;
+  //word-spacing: 0 !important;
+}
+
+.font-sm-bold {
+  @include font-sm-bold;
+  //word-spacing: 0 !important;
+}
+
+.font-md-bold {
+  @include font-md-bold;
+  //word-spacing: 0 !important;
+}
+
+.font-lg-bold {
+  @include font-lg-bold;
+  //word-spacing: 0 !important;
+}
