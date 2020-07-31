@@ -1,5 +1,5 @@
-import routes from 'layouts/routes/admin'
+import userRoutes from 'layouts/routes/user'
 
-const globalRoutes = [...routes]
+const globalRoutes = [...userRoutes]
 
 export default globalRoutes

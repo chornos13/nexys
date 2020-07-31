@@ -31,12 +31,16 @@ function ErrorView(props) {
   const error = getIn(formik.errors, name)
   const touch = isTouch(props)
   if (!isString(error)) {
-    return <></>
+    return <React.Fragment />
   }
 
+  const isShowError = error && touch
+
   return (
-    <div style={{ color: 'red', ...(style || {}) }}>
-      {error && touch ? error : null}
+    <div
+      style={{ color: 'red', ...(style || { marginTop: isShowError ? 5 : 0 }) }}
+    >
+      {isShowError ? error : null}
     </div>
   )
 }

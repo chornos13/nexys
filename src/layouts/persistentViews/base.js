@@ -1,3 +1,5 @@
+// Template Persistent view
+
 import { Form, Formik } from 'formik'
 import React from 'react'
 import PropTypes from 'shortcuts/PropTypes'
@@ -6,7 +8,9 @@ function BasePersist(props) {
   const { Component } = props
   return (
     <Formik
-      initialValues={{}}
+      initialValues={{
+        KepadaIds: [],
+      }}
       onSubmit={(values) => {
         console.log(values)
       }}

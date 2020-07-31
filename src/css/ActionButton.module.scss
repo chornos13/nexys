@@ -1,0 +1,33 @@
+.primary, .secondary {
+  width: 100% !important;
+  height: 49px !important;
+  font-family: CircularStd-Medium !important;
+  font-size: 16px !important;
+  text-align: left !important;
+  padding-left: 35px !important;
+  padding-right: 35px !important;
+}
+
+.primary {
+  background: #F8CC47 !important;
+  border-radius: 10px !important;
+  color: black !important;
+}
+
+.secondary {
+  background-color: transparent !important;
+  border: 1px solid #FFFFFF !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+  color: white !important;
+}
+
+.primary:hover {
+  background-color: white !important;
+}
+
+.secondary:hover {
+  background-color: white !important;
+  color: black !important;
+}

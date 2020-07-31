@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import isError from 'lodash/isError'
 import queryString from 'query-string'
-import QueryTableManager from './QueryTableManager'
+import QueryTableManager from 'helpers/QueryTableManager'
 
 const GET_CONFIG = () => ({
   idProps: 'fetchDataAPI',

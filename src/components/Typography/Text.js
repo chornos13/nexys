@@ -9,6 +9,9 @@ const mapColor = {
   white: 'white',
   black: 'black',
   gray: '#677E9B',
+  red: '#EB5757',
+  green: '#27AE60',
+  primary: '#1B5292',
 }
 
 function Text(props) {
@@ -36,9 +39,13 @@ Text.defaultProps = {
 }
 
 Text.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.any]),
   className: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  color: PropTypes.oneOf(['white', 'black', 'gray']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+  color: PropTypes.oneOfType([
+    PropTypes.oneOf(['white', 'black', 'gray', 'red']),
+    PropTypes.string,
+  ]),
   bold: PropTypes.bool,
   // eslint-disable-next-line react/forbid-prop-types
   style: PropTypes.object,

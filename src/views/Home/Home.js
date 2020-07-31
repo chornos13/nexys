@@ -2,7 +2,7 @@ import React from 'react'
 import { SmileOutlined } from '@ant-design/icons'
 import { Button, Card, Result } from 'antd'
 
-function Home(props) {
+function Home() {
   return (
     <Card>
       <Result

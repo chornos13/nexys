@@ -1,10 +1,40 @@
 .customFont {
-    :global(.ant-checkbox-wrapper){
-        font-family: CircularStd-Medium !important;
-        font-weight: normal !important;
-        font-size: 16px !important;
-        color: black !important;
-        word-spacing: -4px !important;
+  :global(.ant-checkbox-wrapper) {
+    font-family: CircularStd-Medium !important;
+    font-weight: normal !important;
+    font-size: 16px !important;
+    color: black !important;
+    word-spacing: -4px !important;
+  }
+}
+
+.customCheckbox {
+  :global {
+    .ant-checkbox-group-item {
+      background-color: #f8f8fa !important;
+      margin-bottom: 11px !important;
+      border-radius: 10px !important;
+      display: flex !important;
+      align-items: center !important;
+      padding: 10px !important;
+      font-size: 16px !important;
     }
-    
+  }
+}
+
+.horizontal{
+  :global {
+    .ant-checkbox-group-item{
+      font-size: 16px !important;
+    }
+  }
+}
+
+.vertical {
+  :global {
+    .ant-checkbox-group-item{
+      width: 100% !important;
+      font-size: 16px !important;
+    }
+  }
 }

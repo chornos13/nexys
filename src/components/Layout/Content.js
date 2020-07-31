@@ -78,7 +78,7 @@ Content.defaultProps = {
 
 Content.propTypes = {
   classNameContainer: PropTypes.string,
-  styleContainer: PropTypes.shape(PropTypes.object),
+  styleContainer: PropTypes.oneOfType([PropTypes.object]),
   className: PropTypes.string,
   style: PropTypes.shape(PropTypes.object),
   children: PropTypes.node,

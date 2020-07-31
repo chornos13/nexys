@@ -12,14 +12,14 @@ const ComField = (formikProps) => {
   return (
     <RangePicker
       className={cx(cssRange.container, className, cssFont.normal)}
-      {...props}
       {...field}
+      onChange={(value) => {
+        form.setFieldValue(name, value)
+      }}
+      {...props}
       style={{
         width: '100%',
         ...style,
-      }}
-      onChange={(value) => {
-        form.setFieldValue(name, value)
       }}
     />
   )

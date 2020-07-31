@@ -1,15 +1,12 @@
-@import "src/styles/fonts";
+@import 'src/styles/fonts';
 
 .containerSelect {
-
   :global {
     .ant-select-selector {
-      //height: 50px !important;
-      padding: 2px !important;
-      padding-top: 4px !important;
-      padding-left: 15px !important;
-      padding-right: 40px !important;
+      min-height: 50px !important;
       border-radius: 10px !important;
+      padding: 10px 10px !important;
+      padding-right: 40px !important;
     }
 
     .ant-select-arrow {
@@ -18,21 +15,32 @@
     }
 
     .ant-select-selection-search-input {
-      padding: 10px 0 !important;
       height: auto !important;
     }
 
-    .ant-select-selection-placeholder, .ant-select-selection-item {
+    .ant-select-selection-placeholder {
+      padding: 0 10px !important;
+    }
+    .ant-select-selection-item {
+      padding: 0 10px !important;
+    }
+
+    .ant-select-selection-placeholder,
+    .ant-select-selection-item {
       @include font-sm-normal;
       color: black !important;
-      word-spacing: -4px;
+      word-spacing: -4px !important;
     }
 
-    .ant-select-selection-placeholder {
-      padding: 10px !important;
+    .ant-select-item-option-content {
+      @include font-sm-normal;
     }
-
   }
+}
+
+.displayNone {
+  display: none !important;
+
 }
 
 .dropdown {
@@ -42,4 +50,3 @@
     }
   }
 }
-

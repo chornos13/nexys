@@ -5,11 +5,23 @@ import PropTypes from 'shortcuts/PropTypes'
 export const WithToggleProps = PropTypes.shape({
   isOpen: PropTypes.bool,
   toggle: PropTypes.func,
+  show: PropTypes.func,
+  hide: PropTypes.func,
+  prop: PropTypes.shape({
+    visible: PropTypes.bool,
+    onCancel: PropTypes.func,
+  }),
 })
 
 interface WithTogglePropsTS {
   isOpen: boolean
-  toggle: void
+  toggle(extraProp: object): void
+  show(extraProp: object): void
+  hide(extraProp: object): void
+  prop: {
+    visible: boolean
+    onCancel: void
+  }
 }
 
 interface WithToggleArgs {
@@ -30,22 +42,55 @@ function withToggle(configs: WithToggleArgs) {
 
       const createState = (propsKey, initProps) => {
         const extraProps =
-          initProps === true ? { isOpen: true } : { ...initProps }
+          initProps === true
+            ? { isOpen: true }
+            : { isOpen: false, ...initProps }
+        const handleToggle = (isOpen, extraProp) => {
+          const { state } = this
+          const curExtraProp = extraProp || {}
+
+          const curState = {
+            ...state[propsKey],
+            isOpen,
+          }
+          curState.prop = {
+            ...curState.prop,
+            ...curExtraProp,
+            visible: isOpen,
+          }
+
+          this.setState({
+            [propsKey]: curState,
+          })
+        }
+
+        const toggle = (extraProp?) => {
+          const { state } = this
+          const curState = state[propsKey]
+          const { isOpen } = curState
+          handleToggle(!isOpen, extraProp)
+        }
+
+        const hide = (extraProp?) => {
+          handleToggle(false, extraProp)
+        }
+
+        const show = (extraProp?) => {
+          handleToggle(true, extraProp)
+        }
+
         return {
           [propsKey]: {
             isOpen: false,
             ...extraProps,
-            toggle: () => {
-              const { state } = this
-
-              const curState = state[propsKey]
-              const { isOpen } = curState
-              curState.isOpen = !isOpen
-
-              this.setState({
-                [propsKey]: curState,
-              })
+            prop: {
+              visible: extraProps.isOpen,
+              onCancel: () => hide(),
+              hide,
             },
+            toggle,
+            hide,
+            show,
           },
         }
       }

@@ -6,16 +6,45 @@ import cx from 'shortcuts/cx'
 import cssCCheckboxGroup from './CCheckboxGroup.module.scss'
 
 const ComField = (formikProps) => {
-  const { field, className, style, form, options, ...props } = formikProps
+  const {
+    field,
+    className,
+    style,
+    form,
+    options,
+    direction,
+    isNoContainer,
+    ...props
+  } = formikProps
   const { name } = field
+  if (isNoContainer)
+    return (
+      <Checkbox.Group
+        className={cx(
+          className,
+          cssFont.normal,
+          cssCCheckboxGroup[`${direction || 'horizontal'}`],
+        )}
+        options={options || []}
+        {...props}
+        {...field}
+        style={{ ...style }}
+        onChange={(value) => {
+          form.setFieldValue(name, value)
+        }}
+      />
+    )
   return (
     <Checkbox.Group
-      className={cx(className, cssCCheckboxGroup.customFont)}
-      options={options}
+      className={cx(
+        cssCCheckboxGroup.customFont,
+        cssCCheckboxGroup.customCheckbox,
+        className,
+      )}
+      options={options || []}
       {...props}
       {...field}
       style={{
-        width: '100%',
         ...style,
       }}
       onChange={(value) => {

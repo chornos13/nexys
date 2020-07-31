@@ -1,0 +1,24 @@
+@import 'src/styles/fonts';
+.container {
+  height: 50px !important;
+  border-radius: 10px !important;
+  margin-bottom: 10px !important;
+  color: black !important;
+
+  :global {
+    .ant-picker-input {
+      input {
+        padding: 0 1.8%;
+        @include font-md-normal;
+        word-spacing: 0 !important;
+        color: black !important;
+      }
+
+      ::placeholder {
+        @include font-md-normal;
+        word-spacing: 0 !important;
+        color: var(--textColorSecondary) !important;
+      }
+    }
+  }
+}
