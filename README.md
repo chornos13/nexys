@@ -2,13 +2,8 @@
 
 This example shows how to use Next.js along with [Ant Design of React](http://ant.design). This is intended to show the integration of this UI toolkit with the Framework.
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/zeit/next.js/tree/canary/examples/with-ant-design-less)
-
 ## How to use
+Dont forget to copy next-env.example.js to next-env.js :)
 
 Install it and run:
 
