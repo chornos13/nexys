@@ -9,7 +9,7 @@
     "start": "next start -p 5555"
   },
   "dependencies": {
-    "@ant-design/icons": "4.2.1",
+    "@ant-design/icons": "4.2.2",
     "@svgr/webpack": "^5.4.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
