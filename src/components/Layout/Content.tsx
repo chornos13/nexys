@@ -23,14 +23,14 @@ Div.propTypes = {
 }
 
 interface ContentProps {
-  classNameContainer: string
-  styleContainer: CSSProperties
-  className: string
-  style: CSSProperties
-  children: ReactNode | string
-  isComponentContainer: boolean
-  isFullHeight: boolean
-  component: ReactComponentLike
+  classNameContainer?: string
+  styleContainer?: CSSProperties
+  className?: string
+  style?: CSSProperties
+  children?: ReactNode | string
+  isComponentContainer?: boolean
+  isFullHeight?: boolean
+  component?: ReactComponentLike
 }
 
 function Content(props: ContentProps) {
