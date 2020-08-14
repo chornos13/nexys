@@ -54,6 +54,7 @@ module.exports = {
           'components',
           'css',
           'containers',
+          'contexts',
           'fields',
           'stores',
           'styles',
