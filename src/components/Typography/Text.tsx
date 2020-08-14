@@ -17,12 +17,12 @@ const mapColor = {
 }
 
 interface IText extends TextProps {
-  className: string
+  className?: string
   size?: 'xs' | 'sm' | 'md' | 'lg'
   color?: 'primary' | 'white' | 'black' | 'gray' | 'red' | 'green' | any
   bold?: boolean
   align?: TextAlignProperty
-  style: CSSProperties
+  style?: CSSProperties
 }
 
 function Text(props: IText) {

@@ -9,11 +9,11 @@ import cssTitle from './Title.module.scss'
 const { Title: CurTitle } = Typography
 
 interface CustomTitleProps extends TitleProps {
-  className: string
+  className?: string
   color?: 'default' | 'primary' | any
   noMargin?: boolean
   align?: TextAlignProperty
-  style: CSSProperties
+  style?: CSSProperties
 }
 
 const mapColor = {
