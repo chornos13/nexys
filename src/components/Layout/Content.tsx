@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { CSSProperties, ReactNode } from 'react'
 import PropTypes from 'shortcuts/PropTypes'
 import cx from 'shortcuts/cx'
 import cssContent from 'components/Layout/Content.module.scss'
+import { ReactComponentLike } from 'prop-types'
 
 export function Section(props) {
   const { children, ...comProps } = props
@@ -21,12 +22,23 @@ Div.propTypes = {
   children: PropTypes.node,
 }
 
-function Content(props) {
+interface ContentProps {
+  classNameContainer: string
+  styleContainer: CSSProperties
+  className: string
+  style: CSSProperties
+  children: ReactNode | string
+  isComponentContainer: boolean
+  isFullHeight: boolean
+  component: ReactComponentLike
+}
+
+function Content(props: ContentProps) {
   const {
     classNameContainer,
     styleContainer,
     children,
-    component: Component,
+    component: Component = Section,
     className,
     style,
     isComponentContainer,
@@ -70,21 +82,6 @@ function Content(props) {
       </Component>
     </div>
   )
-}
-
-Content.defaultProps = {
-  component: Section,
-}
-
-Content.propTypes = {
-  classNameContainer: PropTypes.string,
-  styleContainer: PropTypes.oneOfType([PropTypes.object]),
-  className: PropTypes.string,
-  style: PropTypes.shape(PropTypes.object),
-  children: PropTypes.node,
-  isComponentContainer: PropTypes.bool,
-  isFullHeight: PropTypes.bool,
-  component: PropTypes.func,
 }
 
 export default Content

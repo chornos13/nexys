@@ -1,4 +1,4 @@
-const _ = require('lodash')
+import _ from 'lodash'
 
 const arrBreakpoints = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl']
 const arrPriorityBreakpoints = [...arrBreakpoints].reverse()
@@ -32,6 +32,6 @@ function getSize(matches, value) {
   return mapScreenValue.xs
 }
 
-module.exports = {
+export default {
   getSize,
 }

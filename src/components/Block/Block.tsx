@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactNode } from 'react'
 import Media from 'react-media'
-import util from './util'
+import util from 'components/Block/util'
 
 const queries = {
   xs: '(max-width: 576px)',
