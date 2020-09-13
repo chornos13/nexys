@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'shortcuts/PropTypes'
+import React, { CSSProperties, ReactNode } from 'react'
 import Media from 'react-media'
-import util from './util'
+import util from 'components/Block/util'
 
 const queries = {
   xs: '(max-width: 576px)',
@@ -12,13 +11,26 @@ const queries = {
   xxl: '(min-width: 1600px)',
 }
 
-function Block(props) {
+interface BlockProps {
+  defaultSize?: string | number
+  size?: string | number | object
+  end?: boolean
+  start?: boolean
+  center?: boolean
+  autoSize?: boolean
+  children: ReactNode
+  // eslint-disable-next-line react/forbid-prop-types
+  style?: CSSProperties
+}
+
+function Block(props: BlockProps) {
   const {
     size,
     end,
     start,
     center,
     defaultSize,
+    autoSize,
     children,
     style,
     ...extraProps
@@ -33,6 +45,7 @@ function Block(props) {
               marginLeft: (util.getSize(matches, end) || center) && 'auto',
               marginRight: (start || center) && 'auto',
               maxWidth: util.getSize(matches, size) || defaultSize,
+              display: autoSize ? 'table' : undefined,
               ...style,
             }}
             {...extraProps}
@@ -43,21 +56,6 @@ function Block(props) {
       }}
     </Media>
   )
-}
-
-Block.propTypes = {
-  defaultSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  end: PropTypes.bool,
-  start: PropTypes.bool,
-  center: PropTypes.bool,
-  children: PropTypes.node,
-  // eslint-disable-next-line react/forbid-prop-types
-  style: PropTypes.object,
 }
 
 export default Block

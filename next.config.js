@@ -52,42 +52,35 @@ const lessConfig = withLess({
   },
 })
 
-const cssConfig = withAntdDayJs(
-  withCSS({
-    cssModules: true,
-    cssLoaderOptions: {
-      importLoaders: 1,
-      localIdentName: '[local]___[hash:base64:5]',
-      getLocalIdent: (loaderContext, localIdentName, localName, options) => {
-        const fileName = path.basename(loaderContext.resourcePath)
-        if (fileName.indexOf('module.scss') !== -1) {
-          return getLocalIdent(
-            loaderContext,
-            localIdentName,
-            localName,
-            options,
-          )
-        } else {
-          return localName
-        }
-      },
-      // modules: {
-      //   localIdentName: "[local]___[hash:base64:5]",
-      //   localIdentName: true,
-      // }
+const cssConfig = withCSS({
+  cssModules: true,
+  cssLoaderOptions: {
+    importLoaders: 1,
+    localIdentName: '[local]___[hash:base64:5]',
+    getLocalIdent: (loaderContext, localIdentName, localName, options) => {
+      const fileName = path.basename(loaderContext.resourcePath)
+      if (fileName.indexOf('module.scss') !== -1) {
+        return getLocalIdent(loaderContext, localIdentName, localName, options)
+      } else {
+        return localName
+      }
     },
-    postcssLoaderOptions: {
-      parser: true,
-      config: {
-        ctx: {
-          theme: JSON.stringify(process.env.REACT_APP_THEME),
-        },
+    // modules: {
+    //   localIdentName: "[local]___[hash:base64:5]",
+    //   localIdentName: true,
+    // }
+  },
+  postcssLoaderOptions: {
+    parser: true,
+    config: {
+      ctx: {
+        theme: JSON.stringify(process.env.REACT_APP_THEME),
       },
     },
-    // ...sassConfig,
-    ...lessConfig,
-  }),
-)
+  },
+  // ...sassConfig,
+  ...lessConfig,
+})
 
 // console.log(cssConfig)
 

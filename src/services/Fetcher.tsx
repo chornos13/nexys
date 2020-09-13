@@ -3,7 +3,7 @@ import { notification } from 'antd'
 import get from 'lodash/get'
 import Router from 'next/router'
 
-const BASE_URL = process.env.BASE_URL || 'http://example.com'
+const BASE_URL = process.env.BASE_URL_API || 'http://example.com'
 
 function createAuthAxios(baseURL: string): AxiosInstance {
   const instanceAxios = axios.create({

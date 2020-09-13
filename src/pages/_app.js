@@ -12,19 +12,6 @@ import 'styles/global.scss'
 import 'styles/_breakpoints.scss'
 import 'styles/_mixins.scss'
 
-const listenLoading = (isListen, refLoading) => {
-  const start = () => {
-    refLoading.style.visibility = 'visible'
-  }
-  const done = () => {
-    refLoading.style.visibility = 'hidden'
-  }
-  const event = isListen ? 'on' : 'off'
-  Router.events[event]('routeChangeStart', start)
-  Router.events[event]('routeChangeComplete', done)
-  Router.events[event]('routeChangeError', done)
-}
-
 class MyApp extends App {
   constructor(props) {
     super(props)
@@ -39,14 +26,27 @@ class MyApp extends App {
     }
 
     this.refLoading.current.style.visibility = 'hidden'
-    listenLoading(true, this.refLoading.current)
+    this.listenLoading(true, this.refLoading.current)
   }
 
   componentWillUnmount() {
     if (process.env.NODE_ENV !== 'production') {
       Router.events.off('routeChangeComplete', this.refreshStyle)
     }
-    listenLoading(false)
+    this.listenLoading(false)
+  }
+
+  listenLoading = (isListen, refLoading) => {
+    const start = () => {
+      refLoading.style.visibility = 'visible'
+    }
+    const done = () => {
+      refLoading.style.visibility = 'hidden'
+    }
+    const event = isListen ? 'on' : 'off'
+    Router.events[event]('routeChangeStart', start)
+    Router.events[event]('routeChangeComplete', done)
+    Router.events[event]('routeChangeError', done)
   }
 
   refreshStyle = (url) => {
@@ -66,7 +66,6 @@ class MyApp extends App {
 
   render() {
     const siteLayout = getSiteLayout(this.props)
-
     return (
       <React.Fragment>
         <Head>
@@ -92,8 +91,8 @@ class MyApp extends App {
             content="https://avatars0.githubusercontent.com/u/20974979?s=400&v=4"
           />
         </Head>
-        {siteLayout}
         <Loading ref={this.refLoading} />
+        {siteLayout}
       </React.Fragment>
     )
   }

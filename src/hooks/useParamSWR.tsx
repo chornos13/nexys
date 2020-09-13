@@ -6,11 +6,14 @@ import set from 'lodash/set'
 import QueryTableManager from 'helpers/QueryTableManager'
 import queryString from 'query-string'
 import Fetcher from 'services/Fetcher'
+import getKeySWR from 'helpers/getKeySWR'
 
 type FetchType = (queryManager: QueryTableManager) => void | string
 
-export interface IUseParamSWR extends responseInterface<any, Error> {
+export interface IUseParamSWR<Data = any>
+  extends responseInterface<Data, Error> {
   total?: number
+  response: Data
   fetch(value: FetchType)
   fetchDebounce(value: FetchType)
   getData(value: FetchType)
@@ -20,7 +23,7 @@ export interface IUseParamSWR extends responseInterface<any, Error> {
   isError: object
   mutateByKeyData(
     key: string,
-    data?: any | Promise<any> | mutateCallback<any>,
+    data?: Data | Promise<Data> | mutateCallback<Data>,
     shouldRevalidate?: boolean,
   )
 }
@@ -43,18 +46,11 @@ function getParam(queryManager: QueryTableManager) {
   return ''
 }
 
-export function getKey(key) {
-  if (isFunction(key)) {
-    return key()
-  }
-  return key
-}
-
-function useParamSWR(
+function useParamSWR<Data = any>(
   key: keyInterface,
   configs?: IConfigUseParamSWR,
   options?: ConfigInterface,
-): IUseParamSWR {
+): IUseParamSWR<Data> {
   const refQueryManager = useRef(null)
   const { current: curConfigs }: { current: IConfigUseParamSWR } = useRef(
     configs,
@@ -83,19 +79,22 @@ function useParamSWR(
     shouldInitialFetch,
   })
 
+  const fnGetKey = getKeySWR(key, config.param)
+
   const swr = useSWR(
-    () => (config.shouldInitialFetch ? `${getKey(key)}${config.param}` : null),
+    config.shouldInitialFetch ? fnGetKey : null,
     fetcher,
     options,
   )
 
   const getData = (val) => {
+    const baseURL = getKeySWR(key)()
     if (isFunction(val)) {
       const newQueryManager = new QueryTableManager()
       val(newQueryManager)
-      return fetcher(`${getKey(key)}${getParam(newQueryManager)}`)
+      return fetcher(`${baseURL}${getParam(newQueryManager)}`)
     }
-    return fetcher(`${getKey(key)}/${val}`)
+    return fetcher(`${baseURL}/${val}`)
   }
 
   const fetch = (val) => {
@@ -142,6 +141,7 @@ function useParamSWR(
     isError: error,
     ...swr,
     ...extraProps,
+    response: data,
     page,
     pageSize,
     fetch,
