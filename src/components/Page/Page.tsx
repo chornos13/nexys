@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'shortcuts/PropTypes'
 import cx from 'shortcuts/cx'
-import cssPage from 'layouts/core/Page.module.scss'
+import cssPage from 'components/Page/Page.module.scss'
 
-function Main(props) {
+function Page(props) {
   const { children, ...comProps } = props
   return (
     <main
@@ -18,8 +18,8 @@ function Main(props) {
   )
 }
 
-Main.propTypes = {
+Page.propTypes = {
   children: PropTypes.node,
 }
 
-export default Main
+export default Page
