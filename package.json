@@ -2,12 +2,12 @@
   "name": "nextjs-concept",
   "version": "1.0.0",
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=\"-r esm\" next -p 3333",
+    "dev": "cross-env NODE_OPTIONS=\"-r esm\" next -p 3000",
     "build": "cross-env NODE_OPTIONS=\"-r esm\" next build",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "analyze": "cross-env-shell NODE_OPTIONS=\"-r esm\" ANALYZE=true next build",
-    "server-build": "npm install && npm run build && pm2 reload nadine-frontend",
+    "server-build": "npm install && npm run build && pm2 reload your_project",
     "start": "next start -p 5555"
   },
   "dependencies": {
@@ -71,10 +71,10 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.7"
   },
   "engines": {
-    "node": "10.x"
+    "node": ">=10.x"
   },
   "license": "ISC"
 }
