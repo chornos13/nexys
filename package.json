@@ -23,7 +23,7 @@
     "babel-plugin-import": "^1.13.0",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
-    "csstype": "2.6.0",
+    "csstype": "3.0.3",
     "esm": "^3.2.25",
     "formik": "^2.1.4",
     "interactjs": "^1.9.19",
