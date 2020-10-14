@@ -12,11 +12,18 @@ import 'styles/global.scss'
 import 'styles/_breakpoints.scss'
 import 'styles/_mixins.scss'
 
+const title = 'Chornos13'
+const description = 'Boilerplate Next.js By Chornos13'
+const metaURL = 'https://www.athijab.com'
+const metaImage = '/static/logo.png'
+const webIconURL = '/static/favicon.png'
+
 class MyApp extends App {
   constructor(props) {
     super(props)
     this.cacheURL = []
     this.refLoading = React.createRef()
+    this.state = { firstMount: false }
   }
 
   componentDidMount() {
@@ -24,9 +31,9 @@ class MyApp extends App {
       // prevent duplication listener
       Router.events.on('routeChangeComplete', this.refreshStyle)
     }
-
-    this.refLoading.current.style.visibility = 'hidden'
-    this.listenLoading(true, this.refLoading.current)
+    this.setState({
+      firstMount: true,
+    })
   }
 
   componentWillUnmount() {
@@ -69,29 +76,38 @@ class MyApp extends App {
     return (
       <React.Fragment>
         <Head>
-          <title>Chornos13 - Next.js</title>
-          <meta name="title" content="Chornos13 - Next.js" />
-          <meta name="description" content="Boilerplate Next.js" />
-
+          <title>{title}</title>
+          <meta name="title" content={title} />
+          <link rel="shortcut icon" href={webIconURL} />
+          <meta name="description" content={description} />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://github.com/chornos13" />
-          <meta property="og:title" content="Chornos13 - Next.js" />
-          <meta property="og:description" content="Boilerplate Next.js" />
-          <meta
-            property="og:image"
-            content="https://avatars0.githubusercontent.com/u/20974979?s=400&v=4"
-          />
-
+          <meta property="og:url" content={metaURL} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:image" content={metaImage} />
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://github.com/chornos13" />
-          <meta property="twitter:title" content="Chornos13 - Next.js" />
-          <meta property="twitter:description" content="Boilerplate Next.js" />
-          <meta
-            property="twitter:image"
-            content="https://avatars0.githubusercontent.com/u/20974979?s=400&v=4"
-          />
+          <meta property="twitter:url" content={metaURL} />
+          <meta property="twitter:title" content={title} />
+          <meta property="twitter:description" content={description} />
+          <meta property="twitter:image" content={metaImage} />
+          {/* <script type="application/ld+json"> */}
+          {/*  {JSON.stringify(schemaORG)} */}
+          {/* </script> */}
         </Head>
-        <Loading ref={this.refLoading} />
+        {this.state.firstMount && (
+          <Loading
+            ref={(ref) => {
+              if (ref && !this?.refLoading?.current) {
+                this.refLoading.current = ref
+                this.refLoading.current.style.visibility = 'hidden'
+                this.listenLoading(true, this.refLoading.current)
+              }
+            }}
+            style={{
+              display: 'none',
+            }}
+          />
+        )}
         {siteLayout}
       </React.Fragment>
     )
