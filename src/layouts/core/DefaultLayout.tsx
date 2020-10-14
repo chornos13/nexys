@@ -1,14 +1,16 @@
 import React from 'react'
 // import { Layout } from 'antd'
 import routes from 'layouts/routes'
-import { SWRConfig, ConfigInterface } from 'swr'
+import { QueryCache, ReactQueryCacheProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query-devtools'
 
-const config: ConfigInterface = {
-  dedupingInterval: 10000,
-  // onSuccess(data, key, config) {
-  //   console.log(data, key, config)
-  // },
-}
+const queryCache = new QueryCache({
+  defaultConfig: {
+    queries: {
+      staleTime: 10000,
+    },
+  },
+})
 
 function getSiteLayout(appProps) {
   const { Component, pageProps, router } = appProps
@@ -19,21 +21,23 @@ function getSiteLayout(appProps) {
     const { exact, path, layout: PageLayout, ...layoutProps } = curRoute
     if ((exact && path === route) || (!exact && route.startsWith(path))) {
       return (
-        <SWRConfig value={config}>
+        <ReactQueryCacheProvider queryCache={queryCache}>
           {PageLayout ? (
             <PageLayout {...appProps} layoutProps={layoutProps} />
           ) : (
             <Component {...pageProps} key={router.route} />
           )}
-        </SWRConfig>
+          <ReactQueryDevtools initialIsOpen />
+        </ReactQueryCacheProvider>
       )
     }
   }
 
   return (
-    <SWRConfig value={config}>
+    <ReactQueryCacheProvider queryCache={queryCache}>
       <Component {...pageProps} key={router.route} />
-    </SWRConfig>
+      <ReactQueryDevtools initialIsOpen />
+    </ReactQueryCacheProvider>
   )
 }
 

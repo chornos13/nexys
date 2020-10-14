@@ -1,18 +1,24 @@
-import useParamSWR, { IConfigUseParamSWR } from 'hooks/useParamSWR'
-import { ConfigInterface } from 'swr'
-import get from 'lodash/get'
+import { useQuery, QueryConfig } from 'react-query'
 
-function useFaq(configs?: IConfigUseParamSWR, options?: ConfigInterface) {
-  const swr = useParamSWR('/common/faq', configs, options)
-  const { data } = swr
+interface FaqData {
+  owner: {
+    login: string
+    avatar_url: string
+  }
+}
 
-  const faqs = get(data, 'data', [])
-  const total = get(data, 'total', faqs.length)
+function useFaq(queryConfig?: QueryConfig<FaqData>) {
+  const query = useQuery<FaqData>(
+    '/common/faq',
+    () =>
+      fetch(
+        'https://api.github.com/repos/chornos13/nextjs-concept',
+      ).then((res) => res.json()),
+    queryConfig,
+  )
 
   return {
-    ...swr,
-    data: faqs,
-    total,
+    ...query,
   }
 }
 
