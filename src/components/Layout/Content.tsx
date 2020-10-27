@@ -22,7 +22,7 @@ Div.propTypes = {
   children: PropTypes.node,
 }
 
-interface ContentProps {
+export interface ContentProps {
   classNameContainer?: string
   styleContainer?: CSSProperties
   className?: string

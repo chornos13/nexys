@@ -1,5 +1,5 @@
 import React from 'react'
-import Content from 'components/Layout/Content'
+import Content, { ContentProps } from 'components/Layout/Content'
 import PropTypes from 'shortcuts/PropTypes'
 import cx from 'shortcuts/cx'
 import cssHeader from './Header.module.scss'
@@ -13,7 +13,9 @@ RawHeader.propTypes = {
   children: PropTypes.node,
 }
 
-function Header(props) {
+interface HeaderProps extends ContentProps {}
+
+function Header(props: HeaderProps) {
   const { children, ...otherProps } = props
   return (
     <Content
@@ -26,10 +28,6 @@ function Header(props) {
       {children}
     </Content>
   )
-}
-
-Header.propTypes = {
-  children: PropTypes.node,
 }
 
 export default Header
