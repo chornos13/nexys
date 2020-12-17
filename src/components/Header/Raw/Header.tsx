@@ -1,5 +1,5 @@
 import React from 'react'
-import Content, { ContentProps } from 'components/Layout/Content'
+import Content, { ContentProps } from 'components/Content/Content'
 import PropTypes from 'shortcuts/PropTypes'
 import cx from 'shortcuts/cx'
 import cssHeader from './Header.module.scss'

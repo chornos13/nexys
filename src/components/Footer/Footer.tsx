@@ -1,5 +1,5 @@
 import React from 'react'
-import Content from 'components/Layout/Content'
+import Content from 'components/Content/Content'
 import PropTypes from 'shortcuts/PropTypes'
 import cx from 'shortcuts/cx'
 import cssFooter from './Footer.module.scss'

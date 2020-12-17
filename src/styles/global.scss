@@ -1,6 +1,14 @@
 @font-face {
-  font-family: 'CircularStd-Medium';
-  src: url('/fonts/CircularStd-Medium.ttf') format('truetype');
+  font-family: 'SFProText-Regular';
+  src: local('SFProText'), local('SFProText-Regular'),
+    url('/fonts/SFProText/SFProText-Regular.ttf') format('truetype'),
+    url('/fonts/SFProText/SFProText-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SFProText-Bold';
+  src: url('/fonts/SFProText/SFProText-Bold.ttf') format('truetype'),
+    url('/fonts/SFProText/SFProText-Bold.otf') format('opentype');
 }
 
 :global {
@@ -22,6 +30,16 @@
     .ant-spin-container {
       height: 100%;
     }
+  }
+
+  .reset-a,
+  .reset-a:hover,
+  .reset-a:visited,
+  .reset-a:focus,
+  .reset-a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactNode } from 'react'
 import PropTypes from 'shortcuts/PropTypes'
 import cx from 'shortcuts/cx'
-import cssContent from 'components/Layout/Content.module.scss'
+import cssContent from 'components/Content/Content.module.scss'
 import { ReactComponentLike } from 'prop-types'
 
 export function Section(props) {
@@ -26,6 +26,7 @@ export interface ContentProps {
   classNameContainer?: string
   styleContainer?: CSSProperties
   className?: string
+  isMobile?: boolean
   style?: CSSProperties
   children?: ReactNode | string
   isComponentContainer?: boolean
@@ -39,6 +40,7 @@ function Content(props: ContentProps) {
     styleContainer,
     children,
     component: Component = Section,
+    isMobile = false,
     className,
     style,
     isComponentContainer,
@@ -54,13 +56,17 @@ function Content(props: ContentProps) {
 
   const containerProps = {
     className: cx(cssContent.container, classNameContainer),
-    style: { ...styleContainer, ...extraStyle },
+    style: {
+      ...styleContainer,
+      ...extraStyle,
+    },
   }
 
   const sectionProps = {
     className: cx(cssContent.section, className),
     style: {
       ...style,
+      ...(isMobile ? { maxWidth: 576 } : {}),
       ...extraStyle,
     },
   }

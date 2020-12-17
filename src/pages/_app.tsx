@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React from 'react'
 import Router from 'next/router'
-import PropTypes from 'prop-types'
 import Loading from 'components/Loading/Loading'
 import App from 'next/app'
 import getSiteLayout from 'layouts/core/DefaultLayout'
@@ -12,13 +11,17 @@ import 'styles/global.scss'
 import 'styles/_breakpoints.scss'
 import 'styles/_mixins.scss'
 
-const title = 'Chornos13'
+const title = 'Boilerplate Next.js'
 const description = 'Boilerplate Next.js By Chornos13'
-const metaURL = 'https://www.athijab.com'
+const metaURL = 'https://github.com/chornos13'
 const metaImage = '/static/logo.png'
-const webIconURL = '/static/favicon.png'
+const webIconURL = '/static/favicon.ico'
 
-class MyApp extends App {
+class MyApp extends App<any, any, { firstMount: boolean }> {
+  private cacheURL
+
+  private refLoading
+
   constructor(props) {
     super(props)
     this.cacheURL = []
@@ -43,7 +46,7 @@ class MyApp extends App {
     this.listenLoading(false)
   }
 
-  listenLoading = (isListen, refLoading) => {
+  listenLoading = (isListen, refLoading?) => {
     const start = () => {
       refLoading.style.visibility = 'visible'
     }
@@ -60,7 +63,7 @@ class MyApp extends App {
     if (this.cacheURL.includes(url)) return
     const els = document.querySelectorAll(
       'link[href*="/_next/static/css/styles.chunk.css"]',
-    )
+    ) as any
     const timestamp = new Date().valueOf()
     for (let i = 0; i < els.length; i += 1) {
       if (els[i].rel === 'stylesheet') {
@@ -112,14 +115,6 @@ class MyApp extends App {
       </React.Fragment>
     )
   }
-}
-
-MyApp.propTypes = {
-  Component: PropTypes.func,
-  pageProps: PropTypes.objectOf(PropTypes.any),
-  router: PropTypes.shape({
-    route: PropTypes.string,
-  }),
 }
 
 export default MyApp

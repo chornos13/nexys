@@ -1,5 +1,5 @@
 import userRoutes from 'layouts/routes/user'
 
-const globalRoutes = [...userRoutes]
+const globalRoutes = [].concat(userRoutes)
 
 export default globalRoutes

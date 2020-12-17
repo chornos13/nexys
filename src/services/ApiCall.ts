@@ -1,24 +1,16 @@
 import Fetcher from 'services/Fetcher'
 import { AxiosInstance } from 'axios'
+import { BASE_API_URL } from 'constant'
 
 class BaseApiCall {
-  private default: AxiosInstance
-
-  private withAuth: AxiosInstance
+  public api: AxiosInstance
 
   constructor() {
-    this.default = Fetcher.default
-    this.withAuth = Fetcher.withAuth
+    this.api = Fetcher.createAuthAxios(BASE_API_URL, 'token')
   }
 
   login(data) {
-    return this.default.post(`/login`, data)
-  }
-
-  FAQ = {
-    post: (data) => this.withAuth.post(`/common/faq`, data),
-    put: (id, data) => this.withAuth.put(`/common/faq/${id}`, data),
-    delete: (id) => this.withAuth.delete(`/common/faq/${id}`),
+    return this.api.post(`/login`, data)
   }
 }
 

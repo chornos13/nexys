@@ -1,15 +1,39 @@
 import React from 'react'
 // import { Layout } from 'antd'
 import routes from 'layouts/routes'
-import { QueryCache, ReactQueryCacheProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query-devtools'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import matchPath from 'helpers/matchPath'
 
-const queryCache = new QueryCache({
-  defaultConfig: {
+export const queryClient = new QueryClient({
+  defaultOptions: {
     queries: {
       staleTime: 10000,
     },
   },
+})
+
+const WrapperReactQuery = (props: any) => {
+  const { children } = props
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+      <ReactQueryDevtools initialIsOpen />
+    </QueryClientProvider>
+  )
+}
+
+export const DefaultLayoutContext = React.createContext<
+  {
+    exact: boolean
+    path: string
+    layout: React.Component
+  } & any
+>({
+  exact: undefined,
+  path: undefined,
+  layout: undefined,
 })
 
 function getSiteLayout(appProps) {
@@ -19,25 +43,31 @@ function getSiteLayout(appProps) {
   for (let i = 0; i < routes.length; i += 1) {
     const curRoute = routes[i]
     const { exact, path, layout: PageLayout, ...layoutProps } = curRoute
-    if ((exact && path === route) || (!exact && route.startsWith(path))) {
+    const match = matchPath(route, {
+      path,
+      exact,
+    })
+    if (match) {
       return (
-        <ReactQueryCacheProvider queryCache={queryCache}>
-          {PageLayout ? (
-            <PageLayout {...appProps} layoutProps={layoutProps} />
-          ) : (
-            <Component {...pageProps} key={router.route} />
-          )}
-          <ReactQueryDevtools initialIsOpen />
-        </ReactQueryCacheProvider>
+        <DefaultLayoutContext.Provider value={curRoute}>
+          <WrapperReactQuery>
+            {PageLayout ? (
+              <PageLayout {...appProps} layoutProps={layoutProps} />
+            ) : (
+              <Component {...pageProps} key={router.route} />
+            )}
+          </WrapperReactQuery>
+        </DefaultLayoutContext.Provider>
       )
     }
   }
 
   return (
-    <ReactQueryCacheProvider queryCache={queryCache}>
-      <Component {...pageProps} key={router.route} />
-      <ReactQueryDevtools initialIsOpen />
-    </ReactQueryCacheProvider>
+    <DefaultLayoutContext.Provider value={pageProps}>
+      <WrapperReactQuery>
+        <Component {...pageProps} key={router.route} />
+      </WrapperReactQuery>
+    </DefaultLayoutContext.Provider>
   )
 }
 

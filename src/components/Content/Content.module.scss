@@ -1,11 +1,10 @@
-@import "src/styles/breakpoints";
-@import "src/styles/mixins";
-
+@import 'src/styles/breakpoints';
+@import 'src/styles/mixins';
 
 .section {
   max-width: 1440px;
   margin: auto;
-  transition: all .2s;
+  transition: all 0.2s;
 
   padding: 0 8%;
   @include xs {

@@ -1,4 +1,4 @@
-import { useQuery, QueryConfig } from 'react-query'
+import { useQuery, UseQueryOptions } from 'react-query'
 
 interface FaqData {
   owner: {
@@ -7,14 +7,14 @@ interface FaqData {
   }
 }
 
-function useFaq(queryConfig?: QueryConfig<FaqData>) {
+function useFaq(options?: UseQueryOptions<FaqData>) {
   const query = useQuery<FaqData>(
     '/common/faq',
     () =>
       fetch(
         'https://api.github.com/repos/chornos13/nextjs-concept',
       ).then((res) => res.json()),
-    queryConfig,
+    options,
   )
 
   return {

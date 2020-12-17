@@ -6,10 +6,10 @@ const withCSS = require('@zeit/next-css')
 const getLocalIdent = require('css-loader/lib/getLocalIdent')
 const withSass = require('@zeit/next-sass')
 const withSVG = require('./webpack-extends/svgr')
-const withAntdDayJs = require('./webpack-extends/antd-dayjs')
+// const withAntdDayJs = require('./webpack-extends/antd-dayjs')
 const withFonts = require('next-fonts')
 const withImages = require('./webpack-extends/images')
-const _ = require('lodash')
+// const _ = require('lodash')
 const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
 const path = require('path')
@@ -55,6 +55,7 @@ const lessConfig = withLess({
 const cssConfig = withCSS({
   cssModules: true,
   cssLoaderOptions: {
+    url: false,
     importLoaders: 1,
     localIdentName: '[local]___[hash:base64:5]',
     getLocalIdent: (loaderContext, localIdentName, localName, options) => {
@@ -100,7 +101,19 @@ const fontConfig = withFonts(withSVG(withFilterConflictOrder(sassConfig)))
 
 const imageConfig = withImages(fontConfig)
 
+const nextImagesConfig = {
+  images: {
+    domains: [
+      'api.beyondrun.com',
+      'api-beyondrun.nusantech.co',
+      'api-prod-new.beyondrun.com',
+      'api-new.beyondrun.com',
+    ],
+  },
+}
+
 module.exports = {
   ...imageConfig,
+  ...nextImagesConfig,
   env,
 }

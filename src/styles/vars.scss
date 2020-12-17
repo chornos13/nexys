@@ -7,10 +7,14 @@ $max-width: 1440px;
     --primaryColor: #1b5292;
     --textColorSecondary: rgba(0, 0, 0, 0.45);
 
-    --primaryFont: CircularStd-Medium;
+    --primaryFont: SFProText-Regular;
   }
 
   #__next {
     height: 100%;
+
+    .ant-card-bordered {
+      border: 2px solid #f0f0f0;
+    }
   }
 }

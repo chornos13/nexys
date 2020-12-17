@@ -10,6 +10,6 @@ const Loading = React.forwardRef<HTMLDivElement>((props, ref) => {
       <p>Loading...</p>
     </div>
   )
-})
+}) as any
 
 export default Loading

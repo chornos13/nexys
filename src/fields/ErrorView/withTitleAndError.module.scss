@@ -1,0 +1,28 @@
+@import "src/styles/breakpoints";
+@import "src/styles/mixins";
+@import "src/styles/fonts";
+
+$breakpointSelect:469;
+
+
+.customFieldsInput {
+    display: flex;
+    flex-direction: column;
+    @include customBreakpoint($breakpointSelect){
+        width: 100%;
+    }
+}
+
+.customTitle {
+    @include font-sm-normal;
+    color: black;
+    word-spacing: -4px;
+    margin-bottom: 10px;
+
+}
+
+.requiredLabel {
+    color: red;
+    display: inline-block;
+    margin-left: 5px;
+}
