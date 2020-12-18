@@ -10,7 +10,24 @@ interface FaqData {
 }
 
 function useFaq(options?: UseQueryOptions<FaqData>) {
-  const queryUrl = useUrlQuery()
+  const queryUrl = useUrlQuery({
+    filtered: {
+      initialValue: {
+        MasterShirtSizeId: 5,
+      },
+    },
+    sorted: {
+      defaultValue: {
+        MasterShirtSizeId: 99,
+      },
+    },
+    query: {
+      initialValue: {
+        page: 1,
+        pageSize: 10,
+      },
+    },
+  })
 
   const query = useQuery<FaqData>(
     queryUrl.transformKey('/common/faq'),

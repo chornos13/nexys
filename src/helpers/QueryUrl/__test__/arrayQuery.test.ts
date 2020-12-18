@@ -19,7 +19,7 @@ describe('test basic function', () => {
     sut.setQuery(id, value)
     sut.setQuery(id, 'anyReplaceValue')
 
-    expect(sut.stringify()).toEqual(
+    expect(sut.toArrayStringify()).toEqual(
       JSON.stringify([
         {
           id,
@@ -37,7 +37,7 @@ describe('test basic function', () => {
     sut.setQuery(id, value)
     sut.remove(id)
 
-    expect(sut.count(id)).toEqual(0)
+    expect(sut.isExist(id)).toEqual(false)
   })
 
   test('should filter value when given with filterValue option', () => {
@@ -52,7 +52,7 @@ describe('test basic function', () => {
     sut.setQuery('anyId3', '')
     sut.setQuery('anyId4', 'anyValidValue')
 
-    expect(sut.getQueries().length).toEqual(1)
+    expect(sut.count()).toEqual(1)
   })
 
   test('should remove query when given invalid value with filterValue exclude option', () => {
@@ -69,7 +69,7 @@ describe('test basic function', () => {
     sut.setQuery('anyId3', 'anyValidValue')
     sut.setQuery('anyId3', '')
 
-    expect(sut.getQueries().length).toEqual(0)
+    expect(sut.count()).toEqual(0)
   })
 
   test('should remove query when given invalid value with filterValue only option', () => {
@@ -87,7 +87,7 @@ describe('test basic function', () => {
 
     sut.setQuery('anyId3', 'anyInvalidvalue')
 
-    expect(sut.getQueries().length).toEqual(0)
+    expect(sut.count()).toEqual(0)
   })
 
   test('should stringify value', () => {
@@ -95,7 +95,7 @@ describe('test basic function', () => {
 
     sut.setQuery('anyId', 'anyValue')
 
-    expect(sut.stringify()).toEqual(
+    expect(sut.toArrayStringify()).toEqual(
       JSON.stringify([
         {
           id: 'anyId',
@@ -118,23 +118,65 @@ describe('test basic function', () => {
     sut.setQuery('anyId4', true)
     sut.setQuery('anyId5', false)
 
-    expect(sut.getQueries().length).toEqual(2)
+    expect(sut.count()).toEqual(2)
   })
 
-  test('should return count with given id', () => {
+  test('should return isExist with given id', () => {
     const sut = new ArrayQuery()
 
     const id = 'anyId'
     sut.setQuery(id, 'anyValue')
-    sut.getQueries().filter = jest.fn().mockImplementation((filterFn) => {
-      const result = filterFn({
-        id,
-      })
-      return {
-        length: result ? 1 : 0,
-      }
+
+    expect(sut.isExist('anyId')).toEqual(true)
+  })
+
+  test('should set initial value with given initalValue', () => {
+    const sut = new ArrayQuery({
+      initialValue: {
+        anyId: 'anyValue',
+      },
     })
 
-    expect(sut.count('anyId')).toEqual(1)
+    expect(sut.isExist('anyId')).toEqual(true)
+  })
+
+  test('should set default value when set in options', () => {
+    const sut = new ArrayQuery({
+      defaultValue: {
+        anyId: 'anyValue',
+      },
+    })
+
+    expect(sut.isExist('anyId')).toEqual(true)
+  })
+
+  test('should set default value when given invalid value in exclude filterValue', () => {
+    const sut = new ArrayQuery({
+      defaultValue: {
+        anyId: 'anyValue',
+      },
+      filterValue: {
+        exclude: ['anyInvalidValue'],
+      },
+    })
+
+    sut.setQuery('anyId', 'anyInvalidValue')
+
+    expect(sut.isExist('anyId')).toEqual(true)
+  })
+
+  test('should set default value when given invalid value in only filterValue', () => {
+    const sut = new ArrayQuery({
+      defaultValue: {
+        anyId: 'anyValue',
+      },
+      filterValue: {
+        only: ['anyValidValue'],
+      },
+    })
+
+    sut.setQuery('anyId', 'anyInvalidValue')
+
+    expect(sut.isExist('anyId')).toEqual(true)
   })
 })

@@ -1,35 +1,18 @@
-import QueryUrl from 'helpers/QueryUrl/QueryUrl'
+import QueryUrl, { QueryUrlOptions } from 'helpers/QueryUrl/QueryUrl'
 import { useMemo, useState } from 'react'
 import queryString from 'query-string'
 
-function useUrlQuery() {
-  const queryUrl = new QueryUrl()
-  const [filtered, setFiltered] = useState('[]')
-  const [sorted, setSorted] = useState('[]')
-  const [localQuery, _setLocalQuery] = useState({})
+type UseUrlQueryOptions = {} & QueryUrlOptions
+
+function useUrlQuery(_options?: UseUrlQueryOptions) {
+  const { ...queryUrlOptions } = { ..._options }
+
+  const queryUrl = new QueryUrl(queryUrlOptions)
+  const [filtered, setFiltered] = useState(queryUrl.filtered.toArrayStringify())
+  const [sorted, setSorted] = useState(queryUrl.sorted.toArrayStringify())
+  const [localQuery, setLocalQuery] = useState(queryUrl.query.get())
 
   const strLocalQuery = JSON.stringify(localQuery)
-
-  const setQuery = useMemo(() => {
-    return function setQuery(objValue: { [key: string]: any }) {
-      _setLocalQuery({
-        ...localQuery,
-        ...objValue,
-      })
-    }
-  }, [strLocalQuery])
-
-  const removeQuery = useMemo(() => {
-    return (id: any) => {
-      const dupQuery = {
-        ...localQuery,
-      }
-      delete dupQuery[id]
-      _setLocalQuery({
-        ...dupQuery,
-      })
-    }
-  }, [strLocalQuery])
 
   const getStringQuery = useMemo(() => {
     return function getStringQuery(url?: string) {
@@ -55,25 +38,25 @@ function useUrlQuery() {
         if (Array.isArray(keys)) {
           return [...keys, getStringQuery()]
         }
-
         return [keys, getStringQuery()]
       },
       setFiltered(id, val) {
         queryUrl.filtered.setQuery(id, val)
-        setFiltered(queryUrl.filtered.stringify())
+        setFiltered(queryUrl.filtered.toArrayStringify())
       },
       setSorted(id, val) {
         queryUrl.sorted.setQuery(id, val)
-        setSorted(queryUrl.sorted.stringify())
+        setSorted(queryUrl.sorted.toArrayStringify())
+      },
+      setQuery(id, val) {
+        queryUrl.query.setQuery(id, val)
+        setLocalQuery(queryUrl.query.get())
       },
     }
   }, [filtered, sorted, strLocalQuery])
 
   return {
-    ...queryUrl,
     ...extraSetter,
-    setQuery,
-    removeQuery,
   }
 }
 export default useUrlQuery

@@ -6,7 +6,7 @@ describe('test basic query url', () => {
 
     queryUrl.filtered.setQuery('anyId', 'anyValue')
 
-    expect(queryUrl.filtered.stringify()).toEqual(
+    expect(queryUrl.filtered.toArrayStringify()).toEqual(
       JSON.stringify([
         {
           id: 'anyId',
@@ -21,7 +21,7 @@ describe('test basic query url', () => {
 
     queryUrl.sorted.setQuery('anyId', true)
 
-    expect(queryUrl.sorted.stringify()).toEqual(
+    expect(queryUrl.sorted.toArrayStringify()).toEqual(
       JSON.stringify([
         {
           id: 'anyId',

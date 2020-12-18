@@ -1,10 +1,12 @@
-interface ArrayQueryOptions {
+export interface ArrayQueryOptions {
   keyId?: string
   keyValue?: string
   filterValue?: {
     only?: any[]
     exclude?: any[]
   }
+  initialValue?: Queries
+  defaultValue?: Queries
 }
 
 interface Queries {
@@ -18,18 +20,42 @@ class ArrayQuery {
 
   private options: ArrayQueryOptions
 
-  private queries: Queries[] = []
+  private queries: Queries = {}
 
   constructor(options?: ArrayQueryOptions) {
-    this.options = options || {}
+    this.options = { ...options }
 
-    const { keyId = 'id', keyValue = 'value' } = this.options
+    const {
+      keyId = 'id',
+      keyValue = 'value',
+      initialValue = {},
+      defaultValue = {},
+    } = this.options
+
     this.keyId = keyId
     this.keyValue = keyValue
+    this.queries = {
+      ...initialValue,
+      ...defaultValue,
+    }
   }
 
-  count(id: string) {
-    return this.getQueries().filter((q) => q[this.keyId] === id).length
+  isExist(id: string) {
+    return id in this.queries
+  }
+
+  private insert(id: string, value: any) {
+    this.queries = {
+      ...this.queries,
+      [id]: value,
+    }
+  }
+
+  private setDefaultValueIfExists(id: string) {
+    const { defaultValue } = this.options
+    if (defaultValue && id in defaultValue) {
+      this.insert(id, defaultValue[id])
+    }
   }
 
   setQuery(id: string, value: any) {
@@ -38,33 +64,50 @@ class ArrayQuery {
     this.remove(id)
 
     if (only && !only.includes(value)) {
+      this.setDefaultValueIfExists(id)
       return
     }
 
     if (exclude && exclude.includes(value)) {
+      this.setDefaultValueIfExists(id)
       return
     }
 
-    this.queries.push({
-      [this.keyId]: id,
-      [this.keyValue]: value,
-    })
+    this.insert(id, value)
   }
 
-  getQueries() {
-    return this.queries
+  count() {
+    return Object.keys(this.queries).length
   }
 
   find(id: string) {
-    return this.queries.find((query) => query[this.keyId] === id)
+    return this.queries[id]
   }
 
   remove(id: string) {
-    this.queries = this.queries.filter((query) => query[this.keyId] !== id)
+    delete this.queries[id]
   }
 
-  stringify() {
-    return JSON.stringify(this.queries)
+  get() {
+    return {
+      ...this.queries,
+    }
+  }
+
+  toArrayStringify() {
+    if (this.count() === 0) {
+      return undefined
+    }
+
+    return JSON.stringify(
+      Object.entries(this.queries).map((query) => {
+        const [key, val] = query
+        return {
+          [this.keyId]: key,
+          [this.keyValue]: val,
+        }
+      }),
+    )
   }
 }
 

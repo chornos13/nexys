@@ -46,15 +46,10 @@ function Home() {
           extra={
             <Button
               onClick={() => {
-                queryFaq.helper.setFiltered('a', 'c')
-                queryFaq.helper.setSorted('a', true)
-                queryFaq.helper.setQuery({
-                  page: 99,
-                })
-                queryFaq.helper.removeQuery('page')
-                queryFaq.helper.setQuery({
-                  page: 100,
-                })
+                queryFaq.helper.setFiltered('MasterShirtSizeId', 'abc')
+                queryFaq.helper.setSorted('MasterShirtSizeId', false)
+                queryFaq.helper.setQuery('page', 10)
+                queryFaq.helper.setQuery('pageSize', 50)
               }}
               type="primary"
             >
