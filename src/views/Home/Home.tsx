@@ -43,7 +43,24 @@ function Home() {
           }
           title="Great, this is Home!"
           subTitle={faqData.owner.login}
-          extra={<Button type="primary">Next</Button>}
+          extra={
+            <Button
+              onClick={() => {
+                queryFaq.helper.setFiltered('a', 'c')
+                queryFaq.helper.setSorted('a', true)
+                queryFaq.helper.setQuery({
+                  page: 99,
+                })
+                queryFaq.helper.removeQuery('page')
+                queryFaq.helper.setQuery({
+                  page: 100,
+                })
+              }}
+              type="primary"
+            >
+              Next
+            </Button>
+          }
         />
       )}
     </Card>

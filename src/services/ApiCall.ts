@@ -6,7 +6,7 @@ class BaseApiCall {
   public api: AxiosInstance
 
   constructor() {
-    this.api = Fetcher.createAuthAxios(BASE_API_URL, 'token')
+    this.api = Fetcher.createAuthAxios(BASE_API_URL)
   }
 
   login(data) {
