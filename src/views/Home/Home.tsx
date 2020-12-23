@@ -3,7 +3,27 @@ import { Button, Card, Result, Avatar, Skeleton } from 'antd'
 import useFaq from 'data/useFaq'
 
 function Home() {
-  const queryFaq = useFaq()
+  const queryFaq = useFaq({
+    query: {
+      initialValue: {
+        page: 1,
+        pageSize: 100,
+      },
+      defaultValue: {
+        check: true,
+      },
+    },
+    filtered: {
+      initialValue: {
+        MasterItemId: 1,
+      },
+    },
+    sorted: {
+      initialValue: {
+        MasterItemId: true,
+      },
+    },
+  })
 
   const { data: faqData } = queryFaq
 
@@ -46,10 +66,7 @@ function Home() {
           extra={
             <Button
               onClick={() => {
-                queryFaq.helper.setFiltered('MasterShirtSizeId', 'abc')
-                queryFaq.helper.setSorted('MasterShirtSizeId', false)
-                queryFaq.helper.setQuery('page', 10)
-                queryFaq.helper.setQuery('pageSize', 50)
+                queryFaq.helper.setFiltered('page', 10)
               }}
               type="primary"
             >

@@ -1,6 +1,6 @@
 import { useQuery, UseQueryOptions } from 'react-query'
 import ApiCall from 'services/ApiCall'
-import useUrlQuery from 'helpers/QueryUrl/useUrlQuery'
+import useUrlQuery, { UseUrlQueryOptions } from 'helpers/QueryUrl/useUrlQuery'
 
 interface FaqData {
   owner: {
@@ -9,33 +9,18 @@ interface FaqData {
   }
 }
 
-function useFaq(options?: UseQueryOptions<FaqData>) {
-  const queryUrl = useUrlQuery({
-    filtered: {
-      initialValue: {
-        MasterShirtSizeId: 5,
-      },
-    },
-    sorted: {
-      defaultValue: {
-        MasterShirtSizeId: 99,
-      },
-    },
-    query: {
-      initialValue: {
-        page: 1,
-        pageSize: 10,
-      },
-    },
-  })
-
+function useFaq(
+  urlOptions?: UseUrlQueryOptions,
+  options?: UseQueryOptions<FaqData>,
+) {
+  const urlQuery = useUrlQuery(urlOptions)
   const query = useQuery<FaqData>(
-    queryUrl.transformKey('/common/faq'),
+    urlQuery.transformKey('/common/faq'),
     () =>
       ApiCall.api
         .get(
-          queryUrl.transformUrl(
-            'https://api.github.com/repos/chornos13/nextjs-concept?',
+          urlQuery.transformUrl(
+            'https://api.github.com/repos/chornos13/nextjs-concept?isChecked=true&',
           ),
         )
         .then((res) => {
@@ -46,7 +31,7 @@ function useFaq(options?: UseQueryOptions<FaqData>) {
 
   return {
     ...query,
-    helper: queryUrl,
+    helper: urlQuery,
   }
 }
 
