@@ -2,7 +2,7 @@ import QueryUrl, { QueryUrlOptions } from 'helpers/QueryUrl/QueryUrl'
 import { useMemo, useState } from 'react'
 import queryString from 'query-string'
 
-type UseUrlQueryOptions = {} & QueryUrlOptions
+export type UseUrlQueryOptions = {} & QueryUrlOptions
 
 function useUrlQuery(_options?: UseUrlQueryOptions) {
   const { ...queryUrlOptions } = { ..._options }
