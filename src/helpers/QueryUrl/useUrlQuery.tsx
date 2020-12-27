@@ -1,5 +1,5 @@
 import QueryUrl, { QueryUrlOptions } from 'helpers/QueryUrl/QueryUrl'
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import queryString from 'query-string'
 
 export type UseUrlQueryOptions = {} & QueryUrlOptions
@@ -7,7 +7,8 @@ export type UseUrlQueryOptions = {} & QueryUrlOptions
 function useUrlQuery(_options?: UseUrlQueryOptions) {
   const { ...queryUrlOptions } = { ..._options }
 
-  const queryUrl = new QueryUrl(queryUrlOptions)
+  const refQueryUrl = useRef(new QueryUrl(queryUrlOptions))
+  const queryUrl = refQueryUrl.current
   const [filtered, setFiltered] = useState(queryUrl.filtered.toArrayStringify())
   const [sorted, setSorted] = useState(queryUrl.sorted.toArrayStringify())
   const [localQuery, setLocalQuery] = useState(queryUrl.query.get())
