@@ -30,19 +30,14 @@ class MyApp extends App<any, any, { firstMount: boolean }> {
   }
 
   componentDidMount() {
-    if (process.env.NODE_ENV !== 'production') {
-      // prevent duplication listener
-      Router.events.on('routeChangeComplete', this.refreshStyle)
-    }
+    Router.events.on('routeChangeComplete', this.refreshStyle)
     this.setState({
       firstMount: true,
     })
   }
 
   componentWillUnmount() {
-    if (process.env.NODE_ENV !== 'production') {
-      Router.events.off('routeChangeComplete', this.refreshStyle)
-    }
+    Router.events.off('routeChangeComplete', this.refreshStyle)
     this.listenLoading(false)
   }
 
@@ -60,16 +55,23 @@ class MyApp extends App<any, any, { firstMount: boolean }> {
   }
 
   refreshStyle = (url) => {
-    if (this.cacheURL.includes(url)) return
-    const els = document.querySelectorAll(
-      'link[href*="/_next/static/css/styles.chunk.css"]',
-    ) as any
-    const timestamp = new Date().valueOf()
-    for (let i = 0; i < els.length; i += 1) {
-      if (els[i].rel === 'stylesheet') {
-        els[i].href = `/_next/static/css/styles.chunk.css?v=${timestamp}`
-        this.cacheURL.push(url)
-        break
+    if (process.env.NODE_ENV === 'production') {
+      const els = document.querySelectorAll('link[rel="preload"][as="style"]')
+      els.forEach((el) => {
+        el.setAttribute('rel', 'stylesheet')
+      })
+    } else {
+      if (this.cacheURL.includes(url)) return
+      const els = document.querySelectorAll(
+        'link[href*="/_next/static/css/styles.chunk.css"]',
+      ) as any
+      const timestamp = new Date().valueOf()
+      for (let i = 0; i < els.length; i += 1) {
+        if (els[i].rel === 'stylesheet') {
+          els[i].href = `/_next/static/css/styles.chunk.css?v=${timestamp}`
+          this.cacheURL.push(url)
+          break
+        }
       }
     }
   }
