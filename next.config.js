@@ -101,19 +101,7 @@ const fontConfig = withFonts(withSVG(withFilterConflictOrder(sassConfig)))
 
 const imageConfig = withImages(fontConfig)
 
-const nextImagesConfig = {
-  images: {
-    domains: [
-      'api.beyondrun.com',
-      'api-beyondrun.nusantech.co',
-      'api-prod-new.beyondrun.com',
-      'api-new.beyondrun.com',
-    ],
-  },
-}
-
 module.exports = {
   ...imageConfig,
-  ...nextImagesConfig,
   env,
 }
