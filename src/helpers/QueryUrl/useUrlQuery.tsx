@@ -4,23 +4,20 @@ import queryString from 'query-string'
 
 export type UseUrlQueryOptions = {} & QueryUrlOptions
 
+type QueryUrlReadOnly<T> = Omit<T, 'set' | 'remove'>
 function useUrlQuery(_options?: UseUrlQueryOptions) {
   const { ...queryUrlOptions } = { ..._options }
 
   const refQueryUrl = useRef(new QueryUrl(queryUrlOptions))
   const queryUrl = refQueryUrl.current
-  const [filtered, setFiltered] = useState(queryUrl.filtered.toArrayStringify())
-  const [sorted, setSorted] = useState(queryUrl.sorted.toArrayStringify())
-  const [localQuery, setLocalQuery] = useState(queryUrl.query.get())
-
-  const strLocalQuery = JSON.stringify(localQuery)
+  const [count, setCount] = useState(0)
 
   const getStringQuery = useMemo(() => {
     return function getStringQuery(url?: string) {
       const strQuery = queryString.stringify({
-        filtered,
-        sorted,
-        ...localQuery,
+        filtered: queryUrl.filtered.toArrayStringify(),
+        sorted: queryUrl.sorted.toArrayStringify(),
+        ...queryUrl.query.get(),
       })
 
       if (!url) {
@@ -28,7 +25,7 @@ function useUrlQuery(_options?: UseUrlQueryOptions) {
       }
       return [url, strQuery].join('')
     }
-  }, [filtered, sorted, strLocalQuery])
+  }, [count])
 
   const extraSetter = useMemo(() => {
     return {
@@ -41,20 +38,19 @@ function useUrlQuery(_options?: UseUrlQueryOptions) {
         }
         return [keys, getStringQuery()]
       },
-      setFiltered(id, val) {
-        queryUrl.filtered.setQuery(id, val)
-        setFiltered(queryUrl.filtered.toArrayStringify())
+      async setQuery(fn: (helper: QueryUrl) => void | Promise<void>) {
+        await fn(queryUrl)
+        setCount((prevState) => prevState + 1)
       },
-      setSorted(id, val) {
-        queryUrl.sorted.setQuery(id, val)
-        setSorted(queryUrl.sorted.toArrayStringify())
+      setQuerySync(fn: (helper: QueryUrl) => void) {
+        fn(queryUrl)
+        setCount((prevState) => prevState + 1)
       },
-      setQuery(id, val) {
-        queryUrl.query.setQuery(id, val)
-        setLocalQuery(queryUrl.query.get())
-      },
+      query: queryUrl.query as QueryUrlReadOnly<typeof queryUrl.query>,
+      sorted: queryUrl.sorted as QueryUrlReadOnly<typeof queryUrl.sorted>,
+      filtered: queryUrl.filtered as QueryUrlReadOnly<typeof queryUrl.filtered>,
     }
-  }, [filtered, sorted, strLocalQuery])
+  }, [count])
 
   return {
     ...extraSetter,

@@ -58,7 +58,7 @@ class ArrayQuery {
     }
   }
 
-  setQuery(id: string, value: any) {
+  set(id: string, value: any) {
     const { filterValue: { exclude, only } = {} } = this.options
     // prevent duplication
     this.remove(id)

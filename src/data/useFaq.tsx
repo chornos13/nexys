@@ -31,7 +31,7 @@ function useFaq(
 
   return {
     ...query,
-    helper: urlQuery,
+    helpers: urlQuery,
   }
 }
 

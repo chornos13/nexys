@@ -6,7 +6,7 @@ describe('test basic function', () => {
     const id = 'anyId'
     const value = 'anyValue'
 
-    sut.setQuery(id, value)
+    sut.set(id, value)
 
     expect(sut.find(id)).toBeTruthy()
   })
@@ -16,8 +16,8 @@ describe('test basic function', () => {
     const id = 'anyId'
     const value = 'anyValue'
 
-    sut.setQuery(id, value)
-    sut.setQuery(id, 'anyReplaceValue')
+    sut.set(id, value)
+    sut.set(id, 'anyReplaceValue')
 
     expect(sut.toArrayStringify()).toEqual(
       JSON.stringify([
@@ -34,7 +34,7 @@ describe('test basic function', () => {
     const id = 'anyId'
     const value = 'anyValue'
 
-    sut.setQuery(id, value)
+    sut.set(id, value)
     sut.remove(id)
 
     expect(sut.isExist(id)).toEqual(false)
@@ -47,10 +47,10 @@ describe('test basic function', () => {
       },
     })
 
-    sut.setQuery('anyId1', null)
-    sut.setQuery('anyId2', undefined)
-    sut.setQuery('anyId3', '')
-    sut.setQuery('anyId4', 'anyValidValue')
+    sut.set('anyId1', null)
+    sut.set('anyId2', undefined)
+    sut.set('anyId3', '')
+    sut.set('anyId4', 'anyValidValue')
 
     expect(sut.count()).toEqual(1)
   })
@@ -62,12 +62,12 @@ describe('test basic function', () => {
       },
     })
 
-    sut.setQuery('anyId1', 'anyValidValue')
-    sut.setQuery('anyId1', null)
-    sut.setQuery('anyId2', 'anyValidValue')
-    sut.setQuery('anyId2', undefined)
-    sut.setQuery('anyId3', 'anyValidValue')
-    sut.setQuery('anyId3', '')
+    sut.set('anyId1', 'anyValidValue')
+    sut.set('anyId1', null)
+    sut.set('anyId2', 'anyValidValue')
+    sut.set('anyId2', undefined)
+    sut.set('anyId3', 'anyValidValue')
+    sut.set('anyId3', '')
 
     expect(sut.count()).toEqual(0)
   })
@@ -79,13 +79,13 @@ describe('test basic function', () => {
       },
     })
 
-    sut.setQuery('anyId1', true)
-    sut.setQuery('anyId1', 'anyInvalidValue')
+    sut.set('anyId1', true)
+    sut.set('anyId1', 'anyInvalidValue')
 
-    sut.setQuery('anyId2', false)
-    sut.setQuery('anyId2', 'anyInvalidValue')
+    sut.set('anyId2', false)
+    sut.set('anyId2', 'anyInvalidValue')
 
-    sut.setQuery('anyId3', 'anyInvalidvalue')
+    sut.set('anyId3', 'anyInvalidvalue')
 
     expect(sut.count()).toEqual(0)
   })
@@ -93,7 +93,7 @@ describe('test basic function', () => {
   test('should stringify value', () => {
     const sut = new ArrayQuery()
 
-    sut.setQuery('anyId', 'anyValue')
+    sut.set('anyId', 'anyValue')
 
     expect(sut.toArrayStringify()).toEqual(
       JSON.stringify([
@@ -112,11 +112,11 @@ describe('test basic function', () => {
       },
     })
 
-    sut.setQuery('anyId1', 'anyInvalidValue1')
-    sut.setQuery('anyId2', 'anyInvalidValue2')
-    sut.setQuery('anyId3', 'anyInvalidValue3')
-    sut.setQuery('anyId4', true)
-    sut.setQuery('anyId5', false)
+    sut.set('anyId1', 'anyInvalidValue1')
+    sut.set('anyId2', 'anyInvalidValue2')
+    sut.set('anyId3', 'anyInvalidValue3')
+    sut.set('anyId4', true)
+    sut.set('anyId5', false)
 
     expect(sut.count()).toEqual(2)
   })
@@ -125,7 +125,7 @@ describe('test basic function', () => {
     const sut = new ArrayQuery()
 
     const id = 'anyId'
-    sut.setQuery(id, 'anyValue')
+    sut.set(id, 'anyValue')
 
     expect(sut.isExist('anyId')).toEqual(true)
   })
@@ -160,7 +160,7 @@ describe('test basic function', () => {
       },
     })
 
-    sut.setQuery('anyId', 'anyInvalidValue')
+    sut.set('anyId', 'anyInvalidValue')
 
     expect(sut.isExist('anyId')).toEqual(true)
   })
@@ -175,7 +175,7 @@ describe('test basic function', () => {
       },
     })
 
-    sut.setQuery('anyId', 'anyInvalidValue')
+    sut.set('anyId', 'anyInvalidValue')
 
     expect(sut.isExist('anyId')).toEqual(true)
   })

@@ -4,7 +4,7 @@ describe('test basic query url', () => {
   test('should add filtered', () => {
     const queryUrl = new QueryUrl()
 
-    queryUrl.filtered.setQuery('anyId', 'anyValue')
+    queryUrl.filtered.set('anyId', 'anyValue')
 
     expect(queryUrl.filtered.toArrayStringify()).toEqual(
       JSON.stringify([
@@ -19,7 +19,7 @@ describe('test basic query url', () => {
   test('should add sorted', () => {
     const queryUrl = new QueryUrl()
 
-    queryUrl.sorted.setQuery('anyId', true)
+    queryUrl.sorted.set('anyId', true)
 
     expect(queryUrl.sorted.toArrayStringify()).toEqual(
       JSON.stringify([

@@ -65,8 +65,16 @@ function Home() {
           subTitle={faqData.owner.login}
           extra={
             <Button
-              onClick={() => {
-                queryFaq.helper.setFiltered('page', 10)
+              onClick={async () => {
+                queryFaq.helpers.setQuerySync((helper) => {
+                  helper.query.set('page', 3333)
+                  helper.sorted.set('MasterItemId', false)
+                  helper.filtered.set('MasterItemId', '22')
+                })
+
+                await queryFaq.helpers.setQuery((helper) => {
+                  helper.query.set('page', 999)
+                })
               }}
               type="primary"
             >
