@@ -9,6 +9,8 @@
     { "type": "perf", "hidden": true },
     { "type": "test", "hidden": true }
   ],
-  "commitUrlFormat": "https://github.com/chornos13/nextjs-concept/commits/{{hash}}",
-  "compareUrlFormat": "https://github.com/chornos13/nextjs-concept/compare/{{previousTag}}...{{currentTag}}"
+  "commitUrlFormat": "https://github.com/chornos13/nextjs-concept/commit/{{hash}}",
+  "compareUrlFormat": "https://github.com/chornos13/nextjs-concept/compare/{{previousTag}}...{{currentTag}}",
+  "NAME": "NextJS Nusantech",
+  "VERSION": "1.0.0"
 }
