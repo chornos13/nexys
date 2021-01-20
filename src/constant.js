@@ -4,6 +4,6 @@ const mapApiUrl = {
   development: 'http://localhost:5000/v1',
 }
 
-export const BASE_API_URL = mapApiUrl[env]
-
-export default {}
+module.exports = {
+  BASE_API_URL: mapApiUrl[env],
+}
