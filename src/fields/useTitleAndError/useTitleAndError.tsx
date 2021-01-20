@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import Text from 'components/Typography/Text'
-import ErrorView from 'fields/HOC/ErrorView/ErrorView'
+import ErrorView from 'fields/ErrorView/ErrorView'
 
 export interface UseTitleAndErrorProps {
   name?: any

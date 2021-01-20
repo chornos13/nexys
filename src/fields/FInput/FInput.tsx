@@ -6,12 +6,16 @@ import useTitleAndError, {
   UseTitleAndErrorProps,
 } from 'fields/useTitleAndError/useTitleAndError'
 
-type FInputProps<Values> = InputProps &
+export type FInputProps = InputProps &
   UseTitleAndErrorProps & {
-    formik?: FormikContextType<Values>
+    name: string
+    /**
+     * Formik Context
+     */
+    formik?: FormikContextType<any>
   }
 
-function FInput<Values extends object>(props: FInputProps<Values>) {
+function FInput(props: FInputProps) {
   const [field] = useField(props as any)
   const [title, error] = useTitleAndError(props)
 

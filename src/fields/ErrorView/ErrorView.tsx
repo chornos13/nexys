@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react'
 import { connect, FormikContextType, getIn } from 'formik'
 import { get } from 'lodash'
-import CastPath from 'fields/HOC/ErrorView/CastPath'
+import CastPath from 'fields/ErrorView/CastPath'
 
 function isString(str) {
   return typeof str === 'string' || str instanceof String
