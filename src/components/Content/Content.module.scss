@@ -1,8 +1,9 @@
 @import 'src/styles/breakpoints';
 @import 'src/styles/mixins';
+@import 'src/styles/vars';
 
 .section {
-  max-width: 1440px;
+  max-width: $max-width;
   margin: auto;
   transition: all 0.2s;
 
