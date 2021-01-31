@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/chornos13/nextjs-concept/compare/v1.0.2...v1.1.0) (2021-01-31)
+
+
+### Features
+
+* **axios:** add typing axios isShowNotificaitonError ([487a035](https://github.com/chornos13/nextjs-concept/commit/487a0352f8776ef24b99ff0a1b41b227fcdcc56c))
+* **base-header:** change Card component to div and remove maxWidth header ([5805f81](https://github.com/chornos13/nextjs-concept/commit/5805f819b6caa04d4005ed397df5939b062dfa92))
+* **debounce:** add debounce feature for set query ([82ff2bb](https://github.com/chornos13/nextjs-concept/commit/82ff2bb287e77396b9c998564f40ce5b435947e4))
+* **example:** add example react-query ([77f5f3b](https://github.com/chornos13/nextjs-concept/commit/77f5f3bb2c625251604c25816cec202f57ee10e9))
+* **home-page:** update layout homepage ([24874a9](https://github.com/chornos13/nextjs-concept/commit/24874a99ea9ad1f995085cd8b66627cd52435a0d))
+* **scroll:** set default scrollBehavior to smooth ([804e776](https://github.com/chornos13/nextjs-concept/commit/804e7767a37ef9881f4c4de3daf914d771708aa6))
+
+
+### Bug Fixes
+
+* **css-loader:** fix Cannot find module 'css-loader/lib/getLocalIdent' ([2eac143](https://github.com/chornos13/nextjs-concept/commit/2eac1436fbc742195c56926322959ad2ad01476f))
+* **text-color:** set default to inherit instead fixed color like black ([71ad255](https://github.com/chornos13/nextjs-concept/commit/71ad2558f7df5aa167ac70e7165156c543ba31ad))
+
 ### [1.0.2](https://github.com/chornos13/nextjs-concept/compare/v1.0.0...v1.0.2) (2021-01-20)
 
 
