@@ -1,6 +1,36 @@
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import { notification } from 'antd'
 
+function showNotification(error: AxiosError) {
+  const { method } = error.config
+
+  const isSendMethod = ['post', 'put'].includes(method)
+
+  function show() {
+    notification.error({
+      message: 'Error!',
+      description: error?.response?.data?.message || error.message,
+    })
+  }
+
+  /*
+   if post or put method, isShowNotificationError must set to true to show notification error
+   */
+  if (isSendMethod && error.config?.isShowNotificationError === true) {
+    show()
+    return
+  }
+
+  /*
+  if the method other than post and put for ex: like get method and
+  isShowNotificationError must set to false to hide notification error
+   */
+  if (!isSendMethod && error.config?.isShowNotificationError !== false) {
+    show()
+    return
+  }
+}
+
 function createAuthAxios(
   baseURL: string,
   keyLocalStorage?: string,
@@ -30,19 +60,8 @@ function createAuthAxios(
     function onSuccess(response) {
       return response
     },
-    function onError(error: AxiosError & any) {
-      const { method } = error.config
-
-      if (
-        ['post', 'put'].includes(method) &&
-        error.config?.notifError !== false
-      ) {
-        notification.error({
-          message: 'Error!',
-          description: error?.response?.data?.message || error.message,
-        })
-      }
-
+    function onError(error: AxiosError) {
+      showNotification(error)
       // const status = get(error, 'response.status', null)
       // if (status === 401) {
       //   window.localStorage.removeItem('tokenpublic')
