@@ -7,10 +7,12 @@ class MyDocument extends Document {
   }
 
   render() {
+    // noinspection HtmlRequiredTitleElement
     return (
       <Html
         style={{
           height: '100%',
+          scrollBehavior: 'smooth',
         }}
       >
         <Head />
