@@ -23,6 +23,7 @@ Div.propTypes = {
 }
 
 export interface ContentProps {
+  id?: string
   classNameContainer?: string
   styleContainer?: CSSProperties
   className?: string
