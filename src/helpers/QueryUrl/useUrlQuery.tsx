@@ -1,8 +1,11 @@
 import QueryUrl, { QueryUrlOptions } from 'helpers/QueryUrl/QueryUrl'
 import { useMemo, useRef, useState } from 'react'
 import queryString from 'query-string'
+import _ from 'lodash'
 
 export type UseUrlQueryOptions = {} & QueryUrlOptions
+
+const DEBOUNCE_WAIT = 500
 
 type QueryUrlReadOnly<T> = Omit<T, 'set' | 'remove'>
 function useUrlQuery(_options?: UseUrlQueryOptions) {
@@ -28,6 +31,15 @@ function useUrlQuery(_options?: UseUrlQueryOptions) {
   }, [count])
 
   const extraSetter = useMemo(() => {
+    async function setQuery(fn: (helper: QueryUrl) => void | Promise<void>) {
+      await fn(queryUrl)
+      setCount((prevState) => prevState + 1)
+    }
+
+    function setQuerySync(fn: (helper: QueryUrl) => void) {
+      fn(queryUrl)
+      setCount((prevState) => prevState + 1)
+    }
     return {
       transformUrl(keys: string) {
         return getStringQuery(keys)
@@ -38,14 +50,10 @@ function useUrlQuery(_options?: UseUrlQueryOptions) {
         }
         return [keys, getStringQuery()]
       },
-      async setQuery(fn: (helper: QueryUrl) => void | Promise<void>) {
-        await fn(queryUrl)
-        setCount((prevState) => prevState + 1)
-      },
-      setQuerySync(fn: (helper: QueryUrl) => void) {
-        fn(queryUrl)
-        setCount((prevState) => prevState + 1)
-      },
+      setQuery,
+      setQuerySync,
+      setQueryDebounce: _.debounce(setQuery, DEBOUNCE_WAIT),
+      setQuerySyncDebounce: _.debounce(setQuerySync, DEBOUNCE_WAIT),
       query: queryUrl.query as QueryUrlReadOnly<typeof queryUrl.query>,
       sorted: queryUrl.sorted as QueryUrlReadOnly<typeof queryUrl.sorted>,
       filtered: queryUrl.filtered as QueryUrlReadOnly<typeof queryUrl.filtered>,
