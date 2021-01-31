@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react'
 import Content, { ContentProps } from 'components/Content/Content'
 import cssHeader from 'layouts/containers/Public/Header/Header.module.scss'
-import { Card, Row } from 'antd'
+import { Row } from 'antd'
 import cx from 'shortcuts/cx'
 
 interface BaseHeaderProps extends ContentProps {
   children?: ReactNode
-  style?: CSSStyleDeclaration & any
+  style?: CSSStyleDeclaration | any
   absolute?: boolean
 }
 
@@ -35,13 +35,12 @@ function BaseHeader(props: BaseHeaderProps) {
               position: 'absolute',
               top: 0,
               width: '100%',
-              maxWidth: 576,
             }
           : {}),
         ...styleContainer,
       }}
     >
-      <Card bodyStyle={{ padding: 0 }}>
+      <div>
         <Row
           justify={'space-between'}
           align={'middle'}
@@ -52,7 +51,7 @@ function BaseHeader(props: BaseHeaderProps) {
         >
           {children}
         </Row>
-      </Card>
+      </div>
     </Content>
   )
 }
