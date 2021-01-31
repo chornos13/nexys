@@ -8,6 +8,11 @@ const routes = [
     layout: PublicContainer,
     exact: true,
   },
+  {
+    path: '/react-query/basic-view-data',
+    layout: PublicContainer,
+    exact: true,
+  },
 ]
 
 export default routes

@@ -2,8 +2,7 @@ import React from 'react'
 import { ReactComponentLike } from 'prop-types'
 import Header from 'layouts/containers/Public/Header'
 import Footer from 'layouts/containers/Public/Footer'
-import Content from 'components/Content/Content'
-import { Card } from 'antd'
+import { BackTop } from 'antd'
 
 interface IProps {
   Component: ReactComponentLike
@@ -18,17 +17,16 @@ function PublicContainer(props: IProps) {
   return (
     <div>
       <Header />
-      <Content style={{ padding: 0 }}>
-        <Card
-          bodyStyle={{ padding: 0 }}
-          style={{
-            minHeight: `calc(100vh - ${HEIGHT_HEADER + HEIGHT_FOOTER}px)`,
-          }}
-        >
-          <Component {...props} />
-        </Card>
-      </Content>
+      <div
+        style={{
+          minHeight: `calc(100vh - ${HEIGHT_HEADER + HEIGHT_FOOTER}px)`,
+        }}
+      >
+        <Component {...props} />
+      </div>
       <Footer />
+
+      <BackTop duration={50} />
     </div>
   )
 }
