@@ -6,7 +6,7 @@ import { TextAlignProperty } from 'csstype'
 const { Title: CurTitle } = Typography
 
 const mapColor = {
-  default: 'black',
+  default: 'inherit',
   primary: '#1B5292',
 }
 
