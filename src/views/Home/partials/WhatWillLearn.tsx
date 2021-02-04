@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Col, Row } from 'antd'
+import { Avatar, Button, Card, Col, Row } from 'antd'
 import Title from 'components/Typography/Title'
 import { CardProps } from 'antd/lib/card'
 import Link from 'next/link'
@@ -8,10 +8,10 @@ interface LearnItemProps extends CardProps {
   urlTitleIcon?: string
   urlDocumentation?: string
   urlExample?: string
-  title?: string
+  title?: string | React.ReactNode
 }
 
-const dataLearnItems = [
+const dataLearnItems: LearnItemProps[] = [
   {
     title: 'React',
     urlTitleIcon:
@@ -42,6 +42,7 @@ const dataLearnItems = [
     urlTitleIcon: 'https://formik.org/images/favicon.png',
     urlDocumentation: 'https://formik.org/docs/overview',
     children: 'Build forms in React, without the tears',
+    urlExample: '/formik/basic-input',
   },
   {
     title: 'React Query',
@@ -55,12 +56,41 @@ const dataLearnItems = [
       'in your React and React Native applications all without touching any "global state".',
   },
   {
+    title: (
+      <React.Fragment>
+        <Avatar
+          style={{
+            background: 'black',
+          }}
+          size={'small'}
+        >
+          Y
+        </Avatar>
+        &nbsp; Yup
+      </React.Fragment>
+    ),
+    children:
+      'Yup is a JavaScript schema builder for value parsing and validation. ' +
+      'Define a schema, transform a value to match, ' +
+      'validate the shape of an existing value, or both. ' +
+      'Yup schema are extremely expressive and allow modeling complex, ' +
+      'interdependent validations, or value transformations.',
+    urlDocumentation: 'https://github.com/jquense/yup',
+  },
+  {
     title: 'Storybook',
     children: 'Build bulletproof UI components faster',
     urlTitleIcon: 'https://storybook.js.org/images/logos/icon-storybook.png',
     urlDocumentation: 'https://storybook.js.org/',
   },
-] as LearnItemProps[]
+  {
+    title: 'Jest',
+    children:
+      'Jest is a delightful JavaScript Testing Framework with a focus on simplicity.',
+    urlTitleIcon: 'https://jestjs.io/img/favicon/favicon.ico',
+    urlDocumentation: 'https://jestjs.io/',
+  },
+]
 
 function LearnItem(props: LearnItemProps) {
   const {
@@ -109,7 +139,7 @@ function LearnItem(props: LearnItemProps) {
         <div>
           {urlTitleIcon && (
             <React.Fragment>
-              <img alt={title} width={24} src={urlTitleIcon} />
+              <img alt={title as string} width={24} src={urlTitleIcon} />
               &nbsp;
             </React.Fragment>
           )}
@@ -134,9 +164,9 @@ function WhatWillLearn() {
           <Col xs={24}>
             <Title noMargin>Library</Title>
           </Col>
-          {dataLearnItems.map((learnItem) => {
+          {dataLearnItems.map((learnItem, key) => {
             return (
-              <Col xs={12} key={learnItem.title}>
+              <Col xs={12} key={key}>
                 <LearnItem {...learnItem} />
               </Col>
             )
