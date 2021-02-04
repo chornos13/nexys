@@ -13,6 +13,10 @@ const routes = [
     layout: PublicContainer,
     exact: true,
   },
+  {
+    path: '/formik/:content',
+    layout: PublicContainer,
+  },
 ]
 
 export default routes
