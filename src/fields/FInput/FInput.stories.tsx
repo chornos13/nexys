@@ -1,23 +1,9 @@
 import React from 'react'
 import FInput, { FInputProps } from 'fields/FInput/FInput'
-// import { Formik, Form } from 'formik'
 import { Story } from '@storybook/react'
 import withFormik from 'storybook-formik'
 
 const Template: Story<FInputProps> = (args) => <FInput {...args} />
-//
-// const FormikDecorator = (Story) => {
-//   return (
-//     <Formik
-//       onSubmit={() => {}}
-//       initialValues={{
-//         anyFieldName: 'anyDefaultValue',
-//       }}
-//     >
-//       <Form>{Story()}</Form>
-//     </Formik>
-//   )
-// }
 
 export const Default = Template.bind({})
 Default.args = {
