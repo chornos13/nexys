@@ -30,6 +30,15 @@ const dataLearnItems: LearnItemProps[] = [
   },
   {
     urlTitleIcon:
+      'https://www.typescriptlang.org/favicon-32x32.png?v=8944a05a8b601855de116c8a56d3b3ae',
+    title: 'TypeScript',
+    urlDocumentation: 'https://www.typescriptlang.org/',
+    children:
+      'Typed JavaScript at Any Scale. TypeScript extends JavaScript by adding types. ' +
+      'By understanding JavaScript, TypeScript saves you time catching errors and providing fixes before you run code',
+  },
+  {
+    urlTitleIcon:
       'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
     title: 'AntDesign',
     urlDocumentation: 'https://ant.design/components/overview/',
@@ -160,13 +169,13 @@ function WhatWillLearn() {
         <Title size={30}>What will you learn?</Title>
       </Col>
       <Col xs={24}>
-        <Row gutter={[20, 20]}>
+        <Row gutter={[20, 20]} justify={'center'}>
           <Col xs={24}>
             <Title noMargin>Library</Title>
           </Col>
-          {dataLearnItems.map((learnItem, key) => {
+          {dataLearnItems.map((learnItem, index) => {
             return (
-              <Col xs={12} key={key}>
+              <Col xs={24} md={12} key={index}>
                 <LearnItem {...learnItem} />
               </Col>
             )
