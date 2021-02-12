@@ -1,7 +1,12 @@
-@import 'src/styles/breakpoints';
-@import 'src/styles/mixins';
 @import 'src/styles/vars';
 
+$xs: 576px;
+
+@mixin xs {
+  @media (max-width: #{$xs}) {
+    @content;
+  }
+}
 .section {
   max-width: $max-width;
   margin: auto;

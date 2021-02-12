@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import cx from 'shortcuts/cx'
+import cx from 'classnames'
 import cssHamburgerMenu from 'components/HamburgerButton/HamburgerButton.module.scss'
 import { Dropdown } from 'antd'
 

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import Content, { ContentProps } from 'components/Content/Content'
 import cssHeader from 'layouts/containers/Public/Header/Header.module.scss'
 import { Row } from 'antd'
-import cx from 'shortcuts/cx'
+import cx from 'classnames'
 
 interface BaseHeaderProps extends ContentProps {
   children?: ReactNode

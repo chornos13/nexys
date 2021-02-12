@@ -7,8 +7,6 @@ import getSiteLayout from 'layouts/core/DefaultLayout'
 import Head from 'next/head'
 import 'styles/vars.scss'
 import 'styles/global.scss'
-import 'styles/_breakpoints.scss'
-import 'styles/_mixins.scss'
 
 const title = 'Nexys'
 const description = 'Nexys Boilerplate By Chornos13'

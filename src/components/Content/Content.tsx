@@ -1,26 +1,7 @@
 import React, { CSSProperties, ReactNode } from 'react'
-import PropTypes from 'shortcuts/PropTypes'
-import cx from 'shortcuts/cx'
+import cx from 'classnames'
 import cssContent from 'components/Content/Content.module.scss'
 import { ReactComponentLike } from 'prop-types'
-
-export function Section(props) {
-  const { children, ...comProps } = props
-  return <section {...comProps}>{children}</section>
-}
-
-Section.propTypes = {
-  children: PropTypes.node,
-}
-
-export function Div(props) {
-  const { children, ...comProps } = props
-  return <div {...comProps}>{children}</div>
-}
-
-Div.propTypes = {
-  children: PropTypes.node,
-}
 
 export interface ContentProps {
   id?: string
@@ -35,12 +16,14 @@ export interface ContentProps {
   component?: ReactComponentLike
 }
 
+const DefaultComponent = (props) => <section {...props} />
+
 function Content(props: ContentProps) {
   const {
     classNameContainer,
     styleContainer,
     children,
-    component: Component = Section,
+    component: Component = DefaultComponent,
     isMobile = false,
     className,
     style,

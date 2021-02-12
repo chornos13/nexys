@@ -12,7 +12,7 @@ import {
   useTable,
 } from 'react-table'
 import Text from 'components/Typography/Text'
-import cx from 'shortcuts/cx'
+import cx from 'classnames'
 import { Spin } from 'antd'
 import cssTable from './Table.module.scss'
 
