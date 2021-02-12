@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/chornos13/nextjs-concept/compare/v1.1.0...v2.0.0) (2021-02-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove unused component and restructure file folder
+
+### Features
+
+* **example:** add example formik basic input ([3212237](https://github.com/chornos13/nextjs-concept/commit/321223782371af1687d76a7c8d47a7b4fc62ab5e))
+* **example:** add function helper for example page ([2ffd79e](https://github.com/chornos13/nextjs-concept/commit/2ffd79eb72a67cb9dbcef6634621f062a2d461dc))
+* **fields:** add FUpload component example ([0caa571](https://github.com/chornos13/nextjs-concept/commit/0caa571262a0ba5b683dcc8cccaa5e3d6f57c928))
+* **hoc:** remove unused HOC ([6473992](https://github.com/chornos13/nextjs-concept/commit/647399210980c0e33f569cf31a41c6cba52c0cbf))
+* **home-page:** add formik example, yup and jest in What Will Learn ([f82d287](https://github.com/chornos13/nextjs-concept/commit/f82d287346228a9c86eb72695c26e1cf6be94d25))
+* **home-page:** layouting formik page ([880655d](https://github.com/chornos13/nextjs-concept/commit/880655dab5c7fc5a044b8fabc528ef033853bd75))
+* **hook:** add new hook useToggle ([b7857f3](https://github.com/chornos13/nextjs-concept/commit/b7857f372cf5f0fd50a991a7c02828680f36a64d))
+* **pages:** add route example formik, and reduce code in react-query example ([44d03ec](https://github.com/chornos13/nextjs-concept/commit/44d03ec15e67848ac4bbff0fae98eb787fefbaee))
+* **storybook:** add example storybook ([1025938](https://github.com/chornos13/nextjs-concept/commit/102593839fd5ae0b7bad65ab8e61158d820654f1))
+* **what-will-learn:** add typescript and responsive layout ([a8266ed](https://github.com/chornos13/nextjs-concept/commit/a8266edf6a2e99dba310e1d1b56a4373a7a56f0c))
+
+
+* remove unused component and restructure file folder ([bf05f8d](https://github.com/chornos13/nextjs-concept/commit/bf05f8d76db8cbb0cd7781552e89e1d0be6a7363))
+
 ## [1.1.0](https://github.com/chornos13/nextjs-concept/compare/v1.0.2...v1.1.0) (2021-01-31)
 
 
