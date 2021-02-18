@@ -117,4 +117,31 @@ describe('basic function', () => {
       ...newState,
     })
   })
+
+  test('should reset state to initial value when call reset function', () => {
+    // arrange
+    const initialState = {
+      anyInitialData: 'anyInitialValue',
+    }
+    const initialToggle = false
+    const { result } = renderHook(() =>
+      useToggle({
+        initialToggle,
+        initialState,
+      }),
+    )
+
+    // act
+    act(() => {
+      result.current.toggle({
+        anyInitialData: 'anyChangedValue',
+      })
+
+      result.current.reset()
+    })
+
+    // assert
+    expect(result.current.state).toEqual(initialState)
+    expect(result.current.isToggled).toEqual(initialToggle)
+  })
 })
