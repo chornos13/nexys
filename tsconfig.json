@@ -21,6 +21,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "node_modules/@types/jest/index.d.ts"
+    "node_modules/@types/jest/index.d.ts",
+    "./jest/jest-setup.ts"
   ]
 }
