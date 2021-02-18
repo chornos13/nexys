@@ -27,7 +27,6 @@ function showNotification(error: AxiosError) {
    */
   if (!isSendMethod && error.config?.isShowNotificationError !== false) {
     show()
-    return
   }
 }
 

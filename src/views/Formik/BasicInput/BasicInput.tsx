@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Formik } from 'formik'
 import FInput from 'fields/FInput/FInput'
-import { Button, Col, Row } from 'antd'
+import { Button, Col, Modal, Row } from 'antd'
 import * as yup from 'yup'
 import Title from 'components/Typography/Title'
 
@@ -32,7 +32,9 @@ function BasicInput() {
       validationSchema={schemaBasicInput}
       onSubmit={(values, formikHelpers) => {
         postTitle(values).then((res) => {
-          alert(JSON.stringify(res))
+          Modal.info({
+            content: JSON.stringify(res),
+          })
           formikHelpers.setSubmitting(false)
         })
       }}

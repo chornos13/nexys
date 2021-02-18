@@ -173,9 +173,9 @@ function WhatWillLearn() {
           <Col xs={24}>
             <Title noMargin>Library</Title>
           </Col>
-          {dataLearnItems.map((learnItem, index) => {
+          {dataLearnItems.map((learnItem) => {
             return (
-              <Col xs={24} md={12} key={index}>
+              <Col xs={24} md={12} key={learnItem.urlDocumentation}>
                 <LearnItem {...learnItem} />
               </Col>
             )
