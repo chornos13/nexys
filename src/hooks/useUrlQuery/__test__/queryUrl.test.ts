@@ -1,4 +1,4 @@
-import QueryUrl from 'helpers/QueryUrl/QueryUrl'
+import QueryUrl from 'hooks/useUrlQuery/QueryUrl'
 
 describe('test basic query url', () => {
   test('should add filtered', () => {

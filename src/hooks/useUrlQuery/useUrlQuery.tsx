@@ -1,4 +1,4 @@
-import QueryUrl, { QueryUrlOptions } from 'helpers/QueryUrl/QueryUrl'
+import QueryUrl, { QueryUrlOptions } from 'hooks/useUrlQuery/QueryUrl'
 import { useMemo, useRef, useState } from 'react'
 import queryString from 'query-string'
 import _ from 'lodash'

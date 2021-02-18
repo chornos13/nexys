@@ -1,4 +1,4 @@
-import ArrayQuery from 'helpers/QueryUrl/ArrayQuery'
+import ArrayQuery from 'hooks/useUrlQuery/ArrayQuery'
 
 describe('test basic function', () => {
   test('should set query', () => {
