@@ -7,12 +7,18 @@ import getSiteLayout from 'layouts/core/DefaultLayout'
 import Head from 'next/head'
 import 'styles/vars.scss'
 import 'styles/global.scss'
+import NProgress from 'nprogress' // nprogress module
+import 'nprogress/nprogress.css' // styles of nprogress//Binding events.
 
 const title = 'Nexys'
 const description = 'Nexys Boilerplate By Chornos13'
 const metaURL = 'https://github.com/chornos13'
 const metaImage = '/static/logo.png'
 const webIconURL = '/static/favicon.ico'
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 class MyApp extends App<any, any, { firstMount: boolean }> {
   private cacheURL
