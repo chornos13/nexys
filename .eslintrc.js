@@ -22,6 +22,10 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'module-resolver', 'prettier', '@typescript-eslint'],
   rules: {
+    // ISSUE: https://stackoverflow.com/questions/63818415/react-was-used-before-it-was-defined/
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    // ---
     // 'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
     'prettier/prettier': 'error',
