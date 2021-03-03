@@ -7,7 +7,7 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "analyze": "cross-env-shell NODE_OPTIONS=\"-r esm\" ANALYZE=true next build",
-    "server-build": "npm install && npm run build && pm2 reload nadine-frontend",
+    "server-build": "npm install && npm run build && pm2 reload your_pm2_name",
     "start": "next start -p 5555",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
