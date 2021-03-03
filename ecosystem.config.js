@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'nadine-frontend',
+      name: 'next-app',
       script: 'npm',
 
       // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/

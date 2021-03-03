@@ -40,11 +40,20 @@ function useToggle<T>(configs?: UseToggleConfigs<T>) {
     function untoggle(state?: T | any) {
       setState(TOGGLE_ACTION_TYPE.UNTOGGLE, state)
     }
+
+    function reset() {
+      setState(
+        initialToggle ? TOGGLE_ACTION_TYPE.TOGGLE : TOGGLE_ACTION_TYPE.UNTOGGLE,
+        initialState,
+      )
+    }
+
     return {
       isToggled,
-      state,
+      state: state as T,
       toggle,
       untoggle,
+      reset,
     }
   }, [counter])
 }

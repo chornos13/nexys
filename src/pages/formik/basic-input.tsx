@@ -1,5 +1,4 @@
 import BasicInput from 'views/Formik/BasicInput/BasicInput'
-import React from 'react'
 import withCodeViewer from 'HOC/withCodeViewer'
 import getSourceCode from 'components/CodeViewer/getSourceCode'
 

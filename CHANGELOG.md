@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/chornos13/nextjs-concept/compare/v2.0.0...v2.1.0) (2021-02-18)
+
+
+### Features
+
+* **hooks:** add feature reset useToggle ([e2c0c7b](https://github.com/chornos13/nextjs-concept/commit/e2c0c7b12215f2144c73f0fda165ec81d9057a5f))
+* **hooks:** add hook usePersistedState ([c3fabac](https://github.com/chornos13/nextjs-concept/commit/c3fabac0d17d500bfa8ebd4938f2ee7be216cd1b))
+* **hooks:** add useValueBreakPoint hook ([4d4fedc](https://github.com/chornos13/nextjs-concept/commit/4d4fedcbae2a722610e75fd72b1a5da492182ff8))
+* setup jest for testing react ([9b849cd](https://github.com/chornos13/nextjs-concept/commit/9b849cda279ad19bbe4be101982fef3e650a9240))
+
+
+### Bug Fixes
+
+* eslint error ([490aa03](https://github.com/chornos13/nextjs-concept/commit/490aa03e4131b3c60f94b974461a3caf9bdb6246))
+
 ## [2.0.0](https://github.com/chornos13/nextjs-concept/compare/v1.1.0...v2.0.0) (2021-02-12)
 
 

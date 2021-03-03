@@ -1,6 +1,6 @@
 import { useQuery, UseQueryOptions } from 'react-query'
 import ApiCall from 'services/ApiCall'
-import useUrlQuery, { UseUrlQueryOptions } from 'helpers/QueryUrl/useUrlQuery'
+import useUrlQuery, { UseUrlQueryOptions } from 'hooks/useUrlQuery/useUrlQuery'
 import { AxiosError } from 'axios'
 
 interface UseProfessionData {

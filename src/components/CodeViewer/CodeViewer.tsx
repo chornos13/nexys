@@ -15,7 +15,7 @@ function CodeViewer(props: CodeViewerProps) {
       <Text
         style={{ textAlign: 'end', width: '100%', display: 'block' }}
         copyable={{
-          text: text,
+          text,
           icon: (
             <div>
               Copy Code &nbsp;

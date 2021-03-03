@@ -1,4 +1,4 @@
-import ArrayQuery, { ArrayQueryOptions } from 'helpers/QueryUrl/ArrayQuery'
+import ArrayQuery, { ArrayQueryOptions } from 'hooks/useUrlQuery/ArrayQuery'
 
 export interface QueryUrlOptions {
   filtered?: ArrayQueryOptions

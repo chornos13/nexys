@@ -1,6 +1,4 @@
 /* eslint-disable */
-const env = require('./next-env')
-
 const withLess = require('@zeit/next-less')
 const withCSS = require('@zeit/next-css')
 const getLocalIdent = require('./css-loader/lib/getLocalIdent')
@@ -103,5 +101,4 @@ const imageConfig = withImages(fontConfig)
 
 module.exports = {
   ...imageConfig,
-  env,
 }
