@@ -1,7 +1,7 @@
 /* eslint-disable */
 const withLess = require('@zeit/next-less')
 const withCSS = require('@zeit/next-css')
-const getLocalIdent = require('./css-loader/lib/getLocalIdent')
+const getLocalIdent = require('get-local-ident')
 const withSass = require('@zeit/next-sass')
 const withSVG = require('./webpack-extends/svgr')
 // const withAntdDayJs = require('./webpack-extends/antd-dayjs')
