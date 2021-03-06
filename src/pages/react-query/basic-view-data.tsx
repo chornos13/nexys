@@ -1,5 +1,5 @@
 import BasicViewData from 'views/ReactQuery/BasicViewData/BasicViewData'
-import withCodeViewer from 'HOC/withCodeViewer'
+import withCodeViewer from 'components/CodeViewer/withCodeViewer'
 import getSourceCode from 'components/CodeViewer/getSourceCode'
 
 export async function getStaticProps() {

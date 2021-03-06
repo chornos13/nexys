@@ -1,5 +1,5 @@
 import BasicInput from 'views/Formik/BasicInput/BasicInput'
-import withCodeViewer from 'HOC/withCodeViewer'
+import withCodeViewer from 'components/CodeViewer/withCodeViewer'
 import getSourceCode from 'components/CodeViewer/getSourceCode'
 
 export async function getStaticProps() {
