@@ -11,23 +11,20 @@ type UseValueBreakpointConfigs<T> = {
 function useValueBreakpoint<T>(
   configs: UseValueBreakpointConfigs<T>,
 ): { screens: ScreenMap; value: T } {
-  const _configs = { ...configs }
+  const curConfigs = { ...configs }
   const screenMap = useBreakpoint()
-  let value = _configs.xs
-  const curBreakpoints = priorityBreakpoint.map((key) => {
-    return [key, screenMap[key]]
-  })
 
-  for (let i = 0; i < curBreakpoints.length; i += 1) {
-    const [screen, isMatch] = curBreakpoints[i]
+  for (let i = 0; i < priorityBreakpoint.length; i += 1) {
+    const screen = priorityBreakpoint[i]
+    const isMatch = screenMap[screen]
 
-    if (isMatch && Object.prototype.hasOwnProperty.call(_configs, screen)) {
-      value = _configs[screen]
-      break
+    if (isMatch && Object.prototype.hasOwnProperty.call(curConfigs, screen)) {
+      return { screens: screenMap, value: curConfigs[screen] }
     }
   }
 
-  return { screens: screenMap, value }
+  // return default value
+  return { screens: screenMap, value: curConfigs.xs }
 }
 
 export default useValueBreakpoint
