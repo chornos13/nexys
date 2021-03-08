@@ -1,9 +1,9 @@
 import React from 'react'
-import Content from 'components/Content/Content'
+import Content, { ContentProps } from 'components/Content/Content'
 import { Col, Row } from 'antd'
 import Text from 'components/Typography/Text'
 
-function Footer() {
+function Footer(props: ContentProps) {
   return (
     <Content
       id={'contributors'}
@@ -15,6 +15,7 @@ function Footer() {
       styleContainer={{
         backgroundColor: 'black',
       }}
+      {...props}
     >
       <Row gutter={[0, 16]}>
         <Col xs={24}>

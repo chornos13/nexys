@@ -4,7 +4,7 @@ import cssHeader from 'layouts/containers/Public/Header/Header.module.scss'
 import { Row } from 'antd'
 import cx from 'classnames'
 
-interface BaseHeaderProps extends ContentProps {
+export interface BaseHeaderProps extends ContentProps {
   children?: ReactNode
   style?: CSSStyleDeclaration | any
   absolute?: boolean

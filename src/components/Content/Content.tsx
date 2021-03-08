@@ -14,6 +14,7 @@ export interface ContentProps {
   isComponentContainer?: boolean
   isFullHeight?: boolean
   component?: ReactComponentLike
+  refContent?: React.Ref<any>
 }
 
 const DefaultComponent = (props) => <section {...props} />
@@ -29,6 +30,7 @@ function Content(props: ContentProps) {
     style,
     isComponentContainer,
     isFullHeight,
+    refContent,
     ...comProps
   } = props
 
@@ -44,6 +46,7 @@ function Content(props: ContentProps) {
       ...styleContainer,
       ...extraStyle,
     },
+    ref: refContent,
   }
 
   const sectionProps = {

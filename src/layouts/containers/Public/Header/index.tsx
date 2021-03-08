@@ -2,12 +2,12 @@ import React from 'react'
 import { Col, Button, Row, Avatar } from 'antd'
 import Text from 'components/Typography/Text'
 import Link from 'next/link'
-import BaseHeader from 'components/BaseHeader/BaseHeader'
+import BaseHeader, { BaseHeaderProps } from 'components/BaseHeader/BaseHeader'
 import Title from 'components/Typography/Title'
 
-function Header() {
+function Header(props: BaseHeaderProps) {
   return (
-    <BaseHeader>
+    <BaseHeader {...props}>
       <Col flex={'none'}>
         <Row>
           <Col style={{ alignSelf: 'center' }}>

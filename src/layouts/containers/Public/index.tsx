@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { ReactComponentLike } from 'prop-types'
 import Header from 'layouts/containers/Public/Header'
 import Footer from 'layouts/containers/Public/Footer'
@@ -8,23 +8,25 @@ interface IProps {
   Component: ReactComponentLike
 }
 
-const HEIGHT_HEADER = 56
-const HEIGHT_FOOTER = 110
-
 function PublicContainer(props: IProps) {
   const { Component } = props
+  const refHeader = useRef<HTMLElement>()
+  const refFooter = useRef<HTMLElement>()
+
+  const headerHeight = refHeader.current?.clientHeight
+  const footerHeight = refFooter.current?.clientHeight
 
   return (
     <div>
-      <Header />
+      <Header refContent={refHeader} />
       <div
         style={{
-          minHeight: `calc(100vh - ${HEIGHT_HEADER + HEIGHT_FOOTER}px)`,
+          minHeight: `calc(100vh - ${headerHeight + footerHeight}px)`,
         }}
       >
         <Component {...props} />
       </div>
-      <Footer />
+      <Footer refContent={refFooter} />
 
       <BackTop duration={50} />
     </div>
