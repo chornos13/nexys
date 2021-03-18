@@ -12,7 +12,6 @@ class MyDocument extends Document {
       <Html
         style={{
           height: '100%',
-          scrollBehavior: 'smooth',
         }}
       >
         <Head />
