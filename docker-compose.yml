@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-next-js-app
+    restart: always
+    volumes:
+      - ./:/app
+      - /app/public
+      - /app/.next
+      - /app/node_modules
+    ports:
+      - '3000:3000'
