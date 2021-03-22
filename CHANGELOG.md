@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/chornos13/nextjs-concept/compare/v2.1.0...v2.2.0) (2021-03-22)
+
+
+### Features
+
+* measure Header and Footer height from Element ([bace716](https://github.com/chornos13/nextjs-concept/commit/bace7160664d5cda8d902f75289abad1b67dfc5e))
+* set AppProps as type argument getSiteLayout ([df1272d](https://github.com/chornos13/nextjs-concept/commit/df1272dd986608af859e82c3de661cb8f84f6fed))
+* simplified implementation custom Icon svg ([bcef150](https://github.com/chornos13/nextjs-concept/commit/bcef150799f82104ef87f16ac49da24d0772f8d3))
+* simplify code get-local-ident ([45468e1](https://github.com/chornos13/nextjs-concept/commit/45468e15a1435a8015c64da8266151d6773d312f))
+* update example style (more flexible and customizable) ([8d9f954](https://github.com/chornos13/nextjs-concept/commit/8d9f95457da64daff31c5c7243e1d49e27deca4a))
+* **nprogress:** add progress bar when change page ([0de1e82](https://github.com/chornos13/nextjs-concept/commit/0de1e82f5b92168ca1219a3b1f4d1e7d5c7b9c83))
+
+
+### Bug Fixes
+
+* add favicon.ico ([6cc63b4](https://github.com/chornos13/nextjs-concept/commit/6cc63b411a0063372885052fd6c96017b4910852))
+* change script server-build ([22d9894](https://github.com/chornos13/nextjs-concept/commit/22d9894d4941551670265bd4f34cd8baf89c86af))
+* fix measure layout header and footer Height and passing pageProps instead props ([0c4e9f6](https://github.com/chornos13/nextjs-concept/commit/0c4e9f60934ad8784f666625d28c40edec4c1ef1))
+* script type check watch ([a9769b3](https://github.com/chornos13/nextjs-concept/commit/a9769b3dbbbea8abd150b4f5cf0cbd6d21c63b62))
+
 ## [2.1.0](https://github.com/chornos13/nextjs-concept/compare/v2.0.0...v2.1.0) (2021-02-18)
 
 
