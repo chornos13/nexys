@@ -3,7 +3,6 @@ import { Form, Formik } from 'formik'
 import FInput from 'fields/FInput/FInput'
 import { Button, Col, Modal, Row } from 'antd'
 import * as yup from 'yup'
-import Title from 'components/Typography/Title'
 
 const schemaBasicInput = yup.object().shape({
   title: yup.string().required('Title wajib diisi'),
@@ -45,11 +44,8 @@ function BasicInput() {
           <Form>
             <Row gutter={[0, 5]}>
               <Col xs={24}>
-                <Title noMargin>Basic Input and Validation</Title>
-              </Col>
-              <Col xs={24}>
                 <FInput
-                  title={'Title'}
+                  title={'Form Title'}
                   name={'title'}
                   placeholder={'Masukkan Title'}
                 />
@@ -69,6 +65,11 @@ function BasicInput() {
       }}
     </Formik>
   )
+}
+
+export const $metadata = {
+  title: 'Basic Input and Validation',
+  description: 'Example for basic input using Formik with Yup',
 }
 
 export default BasicInput

@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import { List, Row, Col, Input, Pagination } from 'antd'
 import useProfession from 'data/useProfession'
-import Title from 'components/Typography/Title'
 
 function BasicViewData() {
   /*
@@ -31,9 +30,6 @@ function BasicViewData() {
     <List
       header={
         <Row gutter={[0, 10]}>
-          <Col xs={24}>
-            <Title noMargin>Basic Get Data (Filter/Pagination)</Title>
-          </Col>
           <Col xs={24}>
             <Input.Search
               style={{ maxWidth: 500 }}
@@ -81,6 +77,11 @@ function BasicViewData() {
       }}
     />
   )
+}
+
+export const $metadata = {
+  title: 'Basic Get Data (Filter/Pagination)',
+  description: 'This example show you how to use react-query with querying',
 }
 
 export default BasicViewData

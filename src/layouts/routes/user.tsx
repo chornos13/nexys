@@ -9,12 +9,7 @@ const routes = [
     exact: true,
   },
   {
-    path: '/react-query/basic-view-data',
-    layout: PublicContainer,
-    exact: true,
-  },
-  {
-    path: '/formik/:content',
+    path: '/examples/',
     layout: PublicContainer,
   },
 ]
