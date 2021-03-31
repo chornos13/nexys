@@ -1,0 +1,7 @@
+#anchor {
+  :global {
+    .ant-anchor-wrapper .ant-anchor-link:not(.ant-anchor-link-active) {
+      display: none;
+    }
+  }
+}

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Content from 'components/Content/Content'
-import { Anchor, Col, Row } from 'antd'
-import DemoIndex from 'views/Examples/DemoIndex'
+import { Col, Row } from 'antd'
+import DemoIndex from 'views/Examples/ListExample/partials/DemoIndex'
 import Head from 'next/dist/next-server/lib/head'
 import Title from 'components/Typography/Title'
 import Text from 'components/Typography/Text'
+import MenuList from 'views/Examples/ListExample/partials/MenuList'
 
-interface ListExampleProps {
+export interface ListExampleProps {
   index: {
     title: string
     description: string
@@ -67,18 +68,10 @@ function ListExample(props: ListExampleProps) {
         >
           {metaData?.children}
         </Text>
-        <Title>Examples</Title>
+
+        <MenuList {...props} />
 
         <Row gutter={[0, 15]}>
-          <Col xs={24}>
-            <Anchor>
-              {index.map((item) => {
-                return (
-                  <Anchor.Link href={`#${item.filename}`} title={item.title} />
-                )
-              })}
-            </Anchor>
-          </Col>
           {index.map((item) => {
             return (
               <Col xs={24} key={item.filename}>

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import ListExample from 'views/Examples/ListExample'
+import ListExample from 'views/Examples/ListExample/ListExample'
 
 function readDirExamples(dir) {
   const filePath = [process.cwd(), 'src', 'examples', dir].join('/')
