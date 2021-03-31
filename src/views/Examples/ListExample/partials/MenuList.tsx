@@ -12,7 +12,7 @@ function MenuList(props: ListExampleProps) {
 
   const elAnchor = useMemo(() => {
     return (
-      <Anchor targetOffset={10}>
+      <Anchor targetOffset={10} onClick={() => stateDrawer.untoggle()}>
         {index.map((item) => {
           return (
             <Anchor.Link
