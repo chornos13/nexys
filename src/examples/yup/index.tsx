@@ -1,21 +1,7 @@
-import React from 'react'
-import { Avatar } from 'antd'
-
 export default {
   order: 7,
-  title: (
-    <React.Fragment>
-      <Avatar
-        style={{
-          background: 'black',
-        }}
-        size={'small'}
-      >
-        Y
-      </Avatar>
-      &nbsp; Yup
-    </React.Fragment>
-  ),
+  title: 'Yup',
+  urlTitleIcon: '/static/images/yup.png',
   children:
     'Yup is a JavaScript schema builder for value parsing and validation. ' +
     'Define a schema, transform a value to match, ' +
