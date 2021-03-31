@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/chornos13/nextjs-concept/compare/v2.2.0...v2.3.0) (2021-03-31)
+
+
+### Features
+
+* add Menu List Example ([22ed354](https://github.com/chornos13/nextjs-concept/commit/22ed35416a192bbed8093b2ef392c4824f8b6f5d))
+* hide drawer when click Anchor ([abc9d4f](https://github.com/chornos13/nextjs-concept/commit/abc9d4f86c2a91841d37e14fcf56458050c4ca0e))
+
 ## [2.2.0](https://github.com/chornos13/nextjs-concept/compare/v2.1.0...v2.2.0) (2021-03-22)
 
 
