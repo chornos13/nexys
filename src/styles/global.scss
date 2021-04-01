@@ -41,4 +41,11 @@
     color: inherit;
     outline: 0;
   }
+
+  #__next {
+    height: 100%;
+    .ant-card-bordered {
+      border: 2px solid #f0f0f0;
+    }
+  }
 }
