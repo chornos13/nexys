@@ -27,7 +27,7 @@ function FUpload(props: FUploadProps) {
           helpers.setValue([...field.value, file])
           return false
         }}
-        fileList={field.value}
+        fileList={field.value || []}
         {...props}
       />
       {error}
