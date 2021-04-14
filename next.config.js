@@ -104,7 +104,4 @@ module.exports = {
   images: {
     domains: ['localhost'],
   },
-  env: {
-    URL_ENV: process.env.URL_ENV,
-  }
 }
