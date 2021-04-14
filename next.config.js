@@ -101,6 +101,9 @@ const imageConfig = withImages(fontConfig)
 
 module.exports = {
   ...imageConfig,
+  images: {
+    domains: ['localhost'],
+  },
   env: {
     URL_ENV: process.env.URL_ENV,
   }
