@@ -1,15 +1,26 @@
-# Boilerplate Next.js With AntD
+# Starter Project Nexys
 
-This boilerplate shows how to use Next.js along with [Ant Design of React](http://ant.design). This is intended to show the integration of this UI toolkit with the Framework.
-
-## How to use
+## How to run Development
 
 Install it and run:
 
 ```bash
-npm install
-npm run dev
-# or
 yarn
 yarn dev
+```
+
+## How to run Production
+
+Install it and run:
+
+```bash
+yarn
+yarn build
+yarn start
+```
+
+## Storybook
+
+```bash
+yarn storybook
 ```
