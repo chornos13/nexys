@@ -1,6 +1,6 @@
 import { useFormikContext } from 'formik'
 import { useEffect, useRef } from 'react'
-import { usePreviousValue } from 'beautiful-react-hooks'
+import usePreviousValue from 'hooks/usePreviousValue/usePreviousValue'
 
 function scrollToView(element, offset) {
   const bodyRect = document.body.getBoundingClientRect().top
