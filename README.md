@@ -24,3 +24,15 @@ yarn start
 ```bash
 yarn storybook
 ```
+
+##Features
+- Next.js
+- Typescript
+- AntDesign
+- Formik
+- React Query
+- Yup
+- Storybook
+- Jest
+- Prettier
+- Eslint
