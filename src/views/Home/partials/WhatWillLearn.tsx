@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, Col, Row } from 'antd'
-import Title from 'components/Typography/Title'
+import Title from '@nexys/components/Typography/Title'
 import { CardProps } from 'antd/lib/card'
 import Link from 'next/link'
 

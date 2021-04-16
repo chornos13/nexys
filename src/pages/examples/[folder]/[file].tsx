@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dist/next-server/lib/dynamic'
-import getSourceCode from 'components/CodeViewer/getSourceCode'
-import Content from 'components/Content/Content'
-import CodeViewer from 'components/CodeViewer/CodeViewer'
+import getSourceCode from '@nexys/components/CodeViewer/getSourceCode'
+import Content from '@nexys/components/Content/Content'
+import CodeViewer from '@nexys/components/CodeViewer/CodeViewer'
 
 export async function getServerSideProps(ctx) {
   const { folder, file } = ctx.query
 
-  const sourceCode = getSourceCode(`examples/${folder}/${file}.tsx`)
+  const sourceCode = getSourceCode(`@nexys/examples/${folder}/${file}.tsx`)
 
   return {
     props: {
@@ -29,7 +29,9 @@ function File(props: FileProps) {
   const [Component, setComponent] = useState(null)
 
   useEffect(() => {
-    const BasicInput = dynamic(() => import(`examples/${folder}/${file}`))
+    const BasicInput = dynamic(() =>
+      import(`@nexys/examples/${folder}/${file}`),
+    )
     setComponent(BasicInput)
   }, [])
 

@@ -55,6 +55,7 @@ module.exports = {
       2,
       {
         ignore: [
+          '@nexys',
           'components',
           'css',
           'containers',

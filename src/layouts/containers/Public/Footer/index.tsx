@@ -1,7 +1,7 @@
 import React from 'react'
-import Content, { ContentProps } from 'components/Content/Content'
+import Content, { ContentProps } from '@nexys/components/Content/Content'
 import { Col, Row } from 'antd'
-import Text from 'components/Typography/Text'
+import Text from '@nexys/components/Typography/Text'
 
 function Footer(props: ContentProps) {
   return (

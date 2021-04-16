@@ -3,7 +3,7 @@ import path from 'path'
 import ListExample from 'views/Examples/ListExample/ListExample'
 
 function readDirExamples(dir) {
-  const filePath = [process.cwd(), 'src', 'examples', dir].join('/')
+  const filePath = [process.cwd(), 'src/@nexys', 'examples', dir].join('/')
   return fs.readdirSync(filePath)
 }
 
@@ -16,7 +16,7 @@ export async function getServerSideProps(ctx) {
 
   filenames.forEach((filename) => {
     // eslint-disable-next-line
-    const file = require(`examples/${folder}/${filename}`)
+    const file = require(`@nexys/examples/${folder}/${filename}`)
 
     if (filename.startsWith('index.')) {
       information = {
@@ -25,9 +25,13 @@ export async function getServerSideProps(ctx) {
       return
     }
 
-    const filePath = [process.cwd(), 'src', 'examples', folder, filename].join(
-      '/',
-    )
+    const filePath = [
+      process.cwd(),
+      'src/@nexys',
+      'examples',
+      folder,
+      filename,
+    ].join('/')
     const sourceCode = fs.readFileSync(filePath, {
       encoding: 'utf-8',
     })

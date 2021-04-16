@@ -1,5 +1,5 @@
 import React from 'react'
-import Content from 'components/Content/Content'
+import Content from '@nexys/components/Content/Content'
 import Welcome from 'views/Home/partials/Welcome'
 import WhatWillLearn from 'views/Home/partials/WhatWillLearn'
 import useDataWhatWilllearns from 'views/Home/partials/useDataWhatWillLearns'

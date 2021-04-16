@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Row } from 'antd'
-import Title from 'components/Typography/Title'
-import Text from 'components/Typography/Text'
+import Title from '@nexys/components/Typography/Title'
+import Text from '@nexys/components/Typography/Text'
 import Image from 'next/dist/client/image'
 import Link from 'next/link'
 

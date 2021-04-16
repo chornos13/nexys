@@ -2,7 +2,7 @@ import React from 'react'
 import routes from 'layouts/routes'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import matchPath from 'helpers/matchPath'
+import matchPath from '@nexys/helpers/matchPath'
 import { AppProps } from 'next/app'
 
 export const queryClient = new QueryClient({

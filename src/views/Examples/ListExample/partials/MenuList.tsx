@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
 import { Anchor, Button, Col, Drawer, Row } from 'antd'
 import MenuOutlined from '@ant-design/icons/lib/icons/MenuOutlined'
-import Title from 'components/Typography/Title'
+import Title from '@nexys/components/Typography/Title'
 import cssListExample from 'views/Examples/ListExample/ListExample.module.scss'
 import { ListExampleProps } from 'views/Examples/ListExample/ListExample'
-import useToggle from 'hooks/useToggle'
+import useToggle from '@nexys/hooks/useToggle'
 
 function MenuList(props: ListExampleProps) {
   const { index } = props

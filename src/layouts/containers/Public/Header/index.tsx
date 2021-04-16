@@ -1,9 +1,11 @@
 import React from 'react'
 import { Col, Button, Row, Avatar } from 'antd'
-import Text from 'components/Typography/Text'
+import Text from '@nexys/components/Typography/Text'
 import Link from 'next/link'
-import BaseHeader, { BaseHeaderProps } from 'components/BaseHeader/BaseHeader'
-import Title from 'components/Typography/Title'
+import BaseHeader, {
+  BaseHeaderProps,
+} from '@nexys/components/BaseHeader/BaseHeader'
+import Title from '@nexys/components/Typography/Title'
 
 function Header(props: BaseHeaderProps) {
   return (

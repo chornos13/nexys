@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dist/next-server/lib/dynamic'
 import { Button, Card, Divider, Tooltip } from 'antd'
-import useToggle from 'hooks/useToggle'
+import useToggle from '@nexys/hooks/useToggle'
 
-const CodeViewer = dynamic(() => import('components/CodeViewer/CodeViewer'), {
-  loading: () => <div>Loading...</div>,
-})
+const CodeViewer = dynamic(
+  () => import('@nexys/components/CodeViewer/CodeViewer'),
+  {
+    loading: () => <div>Loading...</div>,
+  },
+)
 
 interface DemoIndexProps {
   title: string
@@ -22,7 +25,7 @@ function DemoIndex(props: DemoIndexProps) {
 
   useEffect(() => {
     const tempComponent = dynamic(
-      () => import(`examples/${folder}/${filename}`),
+      () => import(`@nexys/examples/${folder}/${filename}`),
       {
         loading: () => <div>Loading...</div>,
       },

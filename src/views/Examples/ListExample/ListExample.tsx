@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Content from 'components/Content/Content'
+import Content from '@nexys/components/Content/Content'
 import { Col, Row } from 'antd'
 import DemoIndex from 'views/Examples/ListExample/partials/DemoIndex'
 import Head from 'next/dist/next-server/lib/head'
-import Title from 'components/Typography/Title'
-import Text from 'components/Typography/Text'
+import Title from '@nexys/components/Typography/Title'
+import Text from '@nexys/components/Typography/Text'
 import MenuList from 'views/Examples/ListExample/partials/MenuList'
 
 export interface ListExampleProps {
@@ -30,7 +30,7 @@ function ListExample(props: ListExampleProps) {
   const [metaData, setMetaData] = useState(null)
 
   useEffect(() => {
-    import(`examples/${folder}`).then((module) => {
+    import(`@nexys/examples/${folder}`).then((module) => {
       setMetaData(module.default)
     })
   })
