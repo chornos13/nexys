@@ -33,7 +33,12 @@ function Welcome() {
         </Row>
       </Col>
       <Col xs={24} sm={12}>
-        <Image width={444} height={306} src={'/static/images/character.png'} />
+        <Image
+          width={444}
+          height={306}
+          src={'/static/images/character.png'}
+          alt={'illustration'}
+        />
       </Col>
     </Row>
   )
