@@ -10,6 +10,7 @@ class MyDocument extends Document {
     // noinspection HtmlRequiredTitleElement
     return (
       <Html
+        lang={'en'}
         style={{
           height: '100%',
         }}
