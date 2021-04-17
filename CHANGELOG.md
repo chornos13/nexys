@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/chornos13/nextjs-concept/compare/v2.3.1...v2.4.0) (2021-04-17)
+
+
+### Features
+
+* add component LazyImgWrapper ([abc23be](https://github.com/chornos13/nextjs-concept/commit/abc23befbf7b805b3429117766c088b24a059bd7))
+
+
+### Bug Fixes
+
+* add alt to illustration image ([a4aec0c](https://github.com/chornos13/nextjs-concept/commit/a4aec0c667be8b5a47673408c8a6d91fda391c5d))
+* add lang in html ([18ba13f](https://github.com/chornos13/nextjs-concept/commit/18ba13fc55d14cef6ad26c9cc9a4cfe7011d66e4))
+* prevent FOIT by set font-display swap ([71dcc5c](https://github.com/chornos13/nextjs-concept/commit/71dcc5cc0b5edf86f5e9a8c430d61f1f113a2b14))
+
 ### [2.3.1](https://github.com/chornos13/nextjs-concept/compare/v2.3.0...v2.3.1) (2021-04-16)
 
 ## [2.3.0](https://github.com/chornos13/nextjs-concept/compare/v2.2.0...v2.3.0) (2021-03-31)
