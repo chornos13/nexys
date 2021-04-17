@@ -3,12 +3,14 @@
   src: local('SFProText'), local('SFProText-Regular'),
     url('/fonts/SFProText/SFProText-Regular.ttf') format('truetype'),
     url('/fonts/SFProText/SFProText-Regular.otf') format('opentype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'SFProText-Bold';
   src: url('/fonts/SFProText/SFProText-Bold.ttf') format('truetype'),
     url('/fonts/SFProText/SFProText-Bold.otf') format('opentype');
+  font-display: swap;
 }
 
 :global {
