@@ -3,6 +3,7 @@ import { Button, Card, Col, Row } from 'antd'
 import Title from '@nexys/components/Typography/Title'
 import { CardProps } from 'antd/lib/card'
 import Link from 'next/link'
+import LazyImgwrapper from '@nexys/components/LazyImgWrapper'
 
 interface LearnItemProps extends CardProps {
   urlTitleIcon?: string
@@ -48,7 +49,11 @@ function LearnItem(props: LearnItemProps) {
         [
           urlDocumentation && (
             <Link href={urlDocumentation}>
-              <a target={'_blank'} style={{ display: 'inline' }}>
+              <a
+                target={'_blank'}
+                rel={'noopener noreferrer'}
+                style={{ display: 'inline' }}
+              >
                 <Button>Go to Documentation</Button>
               </a>
             </Link>
@@ -66,7 +71,9 @@ function LearnItem(props: LearnItemProps) {
         <div>
           {urlTitleIcon && (
             <React.Fragment>
-              <img alt={title as string} width={24} src={urlTitleIcon} />
+              <LazyImgwrapper height={24}>
+                <img alt={title as string} width={24} src={urlTitleIcon} />
+              </LazyImgwrapper>
               &nbsp;
             </React.Fragment>
           )}
