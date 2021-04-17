@@ -1,7 +1,7 @@
 import Home from 'views/Home/Home'
 import fs from 'fs'
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const filePath = [process.cwd(), 'src/@nexys', 'examples'].join('/')
 
   const listDir = fs.readdirSync(filePath)
