@@ -4,10 +4,8 @@ const withCSS = require('@zeit/next-css')
 const getLocalIdent = require('get-local-ident')
 const withSass = require('@zeit/next-sass')
 const withSVG = require('./webpack-extends/svgr')
-// const withAntdDayJs = require('./webpack-extends/antd-dayjs')
 const withFonts = require('next-fonts')
 const withImages = require('./webpack-extends/images')
-// const _ = require('lodash')
 const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
 const path = require('path')
@@ -64,10 +62,6 @@ const cssConfig = withCSS({
         return localName
       }
     },
-    // modules: {
-    //   localIdentName: "[local]___[hash:base64:5]",
-    //   localIdentName: true,
-    // }
   },
   postcssLoaderOptions: {
     parser: true,
@@ -77,20 +71,13 @@ const cssConfig = withCSS({
       },
     },
   },
-  // ...sassConfig,
   ...lessConfig,
 })
-
-// console.log(cssConfig)
 
 const sassConfig = withSass({
   cssModules: true,
   cssLoaderOptions: {
     localIdentName: '[local]___[hash:base64:5]',
-    // modules: {
-    //   localIdentName: "[local]___[hash:base64:5]",
-    //   // localIdentName: true,
-    // }
   },
   ...cssConfig,
 })
