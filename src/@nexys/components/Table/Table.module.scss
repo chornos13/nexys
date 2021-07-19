@@ -1,0 +1,29 @@
+// React Table v6
+.table-container {
+  background-color: #fff;
+  max-width: 1145px;
+}
+
+#customTable {
+  :global {
+    .rt-tr {
+      height: 40px;
+    }
+    .rt-th {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      background-color: #f5f5f5;
+      border-right: 1px solid #ffffff;
+    }
+    .rt-td {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .ReactTable .rt-tbody .rt-td {
+      border-right: 1px solid #ffffff;
+    }
+  }
+}

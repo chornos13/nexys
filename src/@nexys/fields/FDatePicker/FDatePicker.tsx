@@ -24,7 +24,6 @@ function FDatePicker(props: FDatePickerProps) {
       {title}
       <DatePicker
         {...field}
-        {...props}
         onBlur={() => {
           helpers.setTouched(true)
         }}
@@ -34,6 +33,7 @@ function FDatePicker(props: FDatePickerProps) {
         onOk={(value) => {
           helpers.setValue(value)
         }}
+        {...props}
       />
       {error}
     </React.Fragment>
