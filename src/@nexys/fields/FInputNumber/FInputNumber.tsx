@@ -24,7 +24,6 @@ function FInputNumber(props: FInputNumberProps) {
       {title}
       <InputNumber
         {...field}
-        {...props}
         min={0}
         onBlur={() => {
           helpers.setTouched(true)
@@ -37,6 +36,7 @@ function FInputNumber(props: FInputNumberProps) {
           return result
         }}
         style={{ width: '100%' }}
+        {...props}
       />
       {error}
     </React.Fragment>

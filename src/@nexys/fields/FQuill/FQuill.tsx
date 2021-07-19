@@ -68,7 +68,6 @@ function FQuill(props: FQuillProps) {
       {title}
       <TextQuill
         {...field}
-        {...props}
         theme="snow"
         modules={TextQuilModules}
         formats={TextQuilFormats}
@@ -78,6 +77,7 @@ function FQuill(props: FQuillProps) {
         onChange={(value) => {
           helpers.setValue(value)
         }}
+        {...props}
       />
       {error}
     </React.Fragment>
