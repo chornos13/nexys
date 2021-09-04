@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   web:
     build:
@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: my-next-js-app
     restart: always
+    working_dir: /app
     volumes:
       - ./:/app
       - /app/public
