@@ -4,9 +4,7 @@ module.exports = (nextConfig = {}) => {
     webpack(config, options) {
       config.module.rules.push({
         test: /\.svg$/,
-        issuer: {
-          test: /\.(js|ts)x?$/,
-        },
+        issuer: { and: [/\.(js|ts|md)x?$/] },
         use: [
           {
             loader: 'babel-loader',

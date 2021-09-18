@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import dynamic from 'next/dist/next-server/lib/dynamic'
 import getSourceCode from '@nexys/components/CodeViewer/getSourceCode'
 import Content from '@nexys/components/Content/Content'
 import CodeViewer from '@nexys/components/CodeViewer/CodeViewer'
+import dynamic from 'next/dynamic'
 
 export async function getServerSideProps(ctx) {
   const { folder, file } = ctx.query
