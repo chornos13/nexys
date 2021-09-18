@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import dynamic from 'next/dist/next-server/lib/dynamic'
 import { Button, Card, Divider, Tooltip } from 'antd'
 import useToggle from '@nexys/hooks/useToggle'
+import dynamic from 'next/dynamic'
 
 const CodeViewer = dynamic(
   () => import('@nexys/components/CodeViewer/CodeViewer'),
