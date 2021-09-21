@@ -1,6 +1,6 @@
 {
   "name": "nextjs-concept",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=\"-r esm\" next -p 3333",
     "build": "cross-env NODE_OPTIONS=\"-r esm\" next build",
