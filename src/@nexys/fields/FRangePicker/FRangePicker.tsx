@@ -26,7 +26,6 @@ function FRangePicker(props: FRangePickerProps) {
       {title}
       <RangePicker
         {...field}
-        {...props}
         onBlur={() => {
           helpers.setTouched(true)
         }}
@@ -36,6 +35,7 @@ function FRangePicker(props: FRangePickerProps) {
         onOk={(value) => {
           helpers.setValue(value)
         }}
+        {...props}
       />
       {error}
     </React.Fragment>

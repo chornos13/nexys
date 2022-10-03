@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/chornos13/nextjs-concept/compare/v2.4.0...v2.5.0) (2021-09-21)
+
+
+### Features
+
+* add field FCheckbox ([09fd472](https://github.com/chornos13/nextjs-concept/commit/09fd472a965ea0ebeb3e31ea3e400b18ec31fd45))
+* add field FDatePicker ([6e5c659](https://github.com/chornos13/nextjs-concept/commit/6e5c65947a2e7cff62b0fbff45f040f65c0eb1e0))
+* add field FInputNumber ([c16e450](https://github.com/chornos13/nextjs-concept/commit/c16e450c8960bb718254d7f6d24b4bc6725903de))
+* add field FQuill ([15cce1c](https://github.com/chornos13/nextjs-concept/commit/15cce1c48f685d5eb29e3ab39fa0d3f8c5bd2697))
+* add field FRangePicker ([283182e](https://github.com/chornos13/nextjs-concept/commit/283182e12dd11edab9d1f566a5fb3743505b47b7))
+* add field FTextArea ([57415f2](https://github.com/chornos13/nextjs-concept/commit/57415f2e70f23d286e1f09d2503fc365aa480a0a))
+* add react-table v6 & table fixed column ([#11](https://github.com/chornos13/nextjs-concept/issues/11)) ([5ddd52a](https://github.com/chornos13/nextjs-concept/commit/5ddd52aae7be93f6755c38e8fe554ad50616236b))
+
+
+### Bug Fixes
+
+* bug parsing props fields component ([#12](https://github.com/chornos13/nextjs-concept/issues/12)) ([80c5b6b](https://github.com/chornos13/nextjs-concept/commit/80c5b6b83a3f54a983a68f686a8ecea39e540dcf))
+* config dockerfile ([#13](https://github.com/chornos13/nextjs-concept/issues/13)) ([e32748f](https://github.com/chornos13/nextjs-concept/commit/e32748f13aa7c60bb9368377177b50235d795c49))
+* failed run storybook ([f5e88a4](https://github.com/chornos13/nextjs-concept/commit/f5e88a47bdccaa0072adfaa40777b997cef5b579))
+
 ## [2.4.0](https://github.com/chornos13/nextjs-concept/compare/v2.3.1...v2.4.0) (2021-04-17)
 
 
