@@ -21,8 +21,6 @@ RUN export NODE_OPTIONS=\"--max_old_space_size=4096\"
 
 COPY . .
 
-RUN cp .env.example .env
-
 COPY --from=deps /app/node_modules ./node_modules
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
